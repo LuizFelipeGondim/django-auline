@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{{% block conteudo %}
+    <div class="row">
+        {% for post in lista_de_posts %}
+                <div class="col s12 m4 l4">
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="media/{{post.imagem}}">
+                            <span class="card-title">{{post.nome}}</span>
+                        </div>
+                        <div class="card-content">
+                            <p>{{post.conteudo}}</p>
+                        </div>
+                        <div class="card-action">
+                            <a href="#">{{post.nome}}</a>
+                        </div>
+                    </div>
+                </div>
+        {% endfor %}
+    </div>
+{% endblock conteudo %}}
