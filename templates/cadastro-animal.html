@@ -1,2 +1,35 @@
 {% extends 'base.html' %}
 {% block titulo %} Cadastro do Animal {% endblock titulo %}
+
+{% block conteudo %}
+
+    <form method='POST' enctype='multipart/form-data'>
+        {% csrf_token %}
+        {{form.nome.label}}
+        {{form.nome}}
+        {{form.caracteristicas.label}}
+        {{form.caracteristicas}}
+        {{form.imagem.label}}
+        {{form.imagem}}
+        {{form.sexo.label}}
+        {{form.sexo}}
+        {{form.vacinado.label}}
+        {{form.vacinado}}
+        {{form.vermifugado.label}}
+        {{form.vermifugado}}
+        {{form.categoria.label}}
+        {{form.categoria}}
+        {{form.porte.label}}
+        {{form.porte}}
+        {{form.castrado.label}}
+        {{form.castrado}}
+        {{form.cidade.label}}
+        {{form.cidade}}
+        {{form.rua.label}}
+        {{form.rua}}
+        {{form.numero.label}}
+        {{form.numero}}
+        <button type='submit' class="btn btn-primary"> Enviar </button>
+    </form>
+
+{% endblock conteudo %}

@@ -1,0 +1,17 @@
+body{
+    background-color: #E7F2FA;
+}
+
+.card{
+    margin: 10px;
+    padding: 5px;
+}
+
+.nav-item{
+    padding: 5px;
+}
+
+.footer{
+    max-width: 100%;
+
+}

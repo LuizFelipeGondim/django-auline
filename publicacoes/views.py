@@ -1,11 +1,22 @@
 from django.shortcuts import render
-from publicacoes.models import Post
+from publicacoes.models import Animal
+from .forms import AnimalForm
 
-def lista_pub(request):
+def lista_animal(request):
 
-    lista_de_posts = Post.objects.all()
+    lista_de_animais = Animal.objects.all()
     
     contexto = {
-        'lista_de_posts': lista_de_posts
+        'lista_de_animais': lista_de_animais
     }
     return render(request, 'index.html', contexto)
+
+def cadastro_animal(request):
+
+    form = AnimalForm(request.POST or None, request.FILES)
+
+    if form.is_valid():
+        form.save()
+        return lista_animal()
+
+    return render(request, 'cadastro-animal.html', {'form':form})

@@ -1,4 +1,4 @@
 from django.contrib import admin
-from publicacoes.models import Post
+from publicacoes.models import Animal
 
-admin.site.register(Post)
+admin.site.register(Animal)

@@ -1,62 +1,103 @@
+{% load static %}
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
-    <meta charset="UTF-8">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Feed</title>
+    <title>{% block titulo %} {% endblock titulo%}</title>
 </head>
 <body>
-    
+    <nav class="navbar navbar-expand-lg navbar-light bg-white" id="topo">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="#"><img src="{% static 'imagens/logo.png' %}" 
+        style = "width: 160px; height: 60px;" alt="logo"></a>
 
-    <nav>
-        <div class="nav-wrapper white">
-            <img src="media/logo.png" width="190px">
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a href="sass.html">Sass</a></li>
-                <li><a href="badges.html">Components</a></li>
-                <li><a href="collapsible.html">JavaScript</a></li>
-            </ul>
-        </div>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li class="nav-item active">
+            <a class="nav-link" href="#"> Doe </a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link" href="#"> Incentivo </a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link" href="#"> Sobre </a>
+        </li>
+        <li class="nav-item active">
+            <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Login</button>
+        </li>
+        <li class="nav-item active">
+            <button class="btn btn-warning" type="submit">Cadastro</button>
+        </li>
+        
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </div>
     </nav>
 
-    <div class="container"> 
-        <div class="contentp">
-            {% block conteudo %}
-            {% endblock conteudo %}
+    
+        {% block conteudo %}
+        {% endblock conteudo %}
+      
+
+    <div class="container bg-white footer">
+    <footer class="pt-4 my-md-5 pt-md-5 border-top" style = "margin-bottom: 0px;" >
+        <div class="row">
+          <div class="col-12 col-md">
+            
+                <img class="mb-2" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="24" height="24">
+                <small class="d-block mb-3 text-muted">&copy; 2017-2018</small>
+            
+          </div>
+          <div class="col-6 col-md">
+            <h5>Features</h5>
+            <ul class="list-unstyled text-small">
+              <li><a class="text-muted" href="#">Cool stuff</a></li>
+              <li><a class="text-muted" href="#">Random feature</a></li>
+              <li><a class="text-muted" href="#">Team feature</a></li>
+              <li><a class="text-muted" href="#">Stuff for developers</a></li>
+              <li><a class="text-muted" href="#">Another one</a></li>
+              <li><a class="text-muted" href="#">Last time</a></li>
+            </ul>
+          </div>
+          <div class="col-6 col-md">
+            <h5>Resources</h5>
+            <ul class="list-unstyled text-small">
+              <li><a class="text-muted" href="#">Resource</a></li>
+              <li><a class="text-muted" href="#">Resource name</a></li>
+              <li><a class="text-muted" href="#">Another resource</a></li>
+              <li><a class="text-muted" href="#">Final resource</a></li>
+            </ul>
+          </div>
+          <div class="col-6 col-md">
+            <h5>About</h5>
+            <ul class="list-unstyled text-small">
+              <li><a class="text-muted" href="#">Team</a></li>
+              <li><a class="text-muted" href="#">Locations</a></li>
+              <li><a class="text-muted" href="#">Privacy</a></li>
+              <li><a class="text-muted" href="#">Terms</a></li>
+            </ul>
+          </div>
+          <div class="col-6 col-md">
+            <a href="#topo"><button type="button" class="btn btn-dark">Retornar</button></a>
+          </div>
+          
         </div>
+      </footer>
     </div>
 
 
-    
-
-    <footer class="page-footer cyan lighten-5">
-        <div class="container">
-            <div class="row">
-                <div class="col l5 s12">
-                    <h5 class="orange-text">Footer Content</h5>
-                    <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
-                </div>
-                <div class="col l4 offset-l2 s12">
-                    <h5 class="orange-text">Links</h5>
-                    <ul>
-                        <li><a class="white-text text-lighten-3" href="#!">Link 1</a></li>
-                        <li><a class="white-text text-lighten-3" href="#!">Link 2</a></li>
-                        <li><a class="white-text text-lighten-3" href="#!">Link 3</a></li>
-                        <li><a class="white-text text-lighten-3" href="#!">Link 4</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="footer-copyright">
-            <div class="container">
-                © 2014 Copyright Text
-                <a class="black-text text-lighten-4 right" href="#!">More Links</a>
-            </div>
-        </div>
-    </footer>
-    
 </body>
 </html>
