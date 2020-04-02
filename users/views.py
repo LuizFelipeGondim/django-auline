@@ -7,5 +7,10 @@ def cadastro(request):
     if request.method == 'POST':
         if form.is_valid():
             form.save()
+            return login(request)
 
     return render(request, 'cadastro.html', context)
+
+def login(request):
+    form = LoginModelForm(request.POST or None)
+    context = {'form':form}

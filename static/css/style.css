@@ -13,5 +13,11 @@ body{
 
 .footer{
     max-width: 100%;
+}
 
+.form-cadastro{
+    margin: 10px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #ffffff ;
 }
