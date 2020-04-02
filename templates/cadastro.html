@@ -1,2 +1,18 @@
 {% extends 'base.html' %}
 
+{% block conteudo %}
+
+<div class="container justify-content-lg-center">
+<div class="row col-md-5 ">
+<form class="form-signin" method="post" class="form">
+        <img class="mb-4" src="/docs/4.4/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+        <h1 class="h3 mb-3 font-weight-normal">Cadastro</h1>
+        {% csrf_token %}
+        {{ form }}
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        <p class="mt-5 mb-3 text-muted text-center">&copy; 2017-2019</p>
+  </form>
+</div>
+</div>
+
+{% endblock conteudo %}
