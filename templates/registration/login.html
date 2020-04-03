@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block conteudo %}
+    <div class="row justify-content-sm-center">
+        <div class="com-md-6">
+            <div class="card auth-card">
+                <div class="card-body">
+                    <h4 class="card-tittle text-center">Login</h4>
+                    <form method="POST">
+                        {% csrf_token %}
+                        <input type="hidden" name="next" value="{{ next }}">
+                        {{ form|crispy }}    
+                        <button type="submit" class="btn btn-primary">Logar</button>
+                    </form>        
+                </div>
+            </div>
+        </div>    
+    </div>
+{% endblock conteudo %}

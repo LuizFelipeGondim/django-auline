@@ -21,3 +21,7 @@ body{
     border-radius: 10px;
     background-color: #ffffff ;
 }
+
+.row{
+    margin: 0;
+}

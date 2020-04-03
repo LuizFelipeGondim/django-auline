@@ -13,3 +13,4 @@ class UserModelForm(forms.ModelForm):
             'email': forms.TextInput(attrs={'class':'form-control', 'max-length': 100}),
             'username': forms.TextInput(attrs={'class':'form-control', 'max-length': 100}),
         }
+
