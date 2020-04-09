@@ -1,7 +1,9 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required #@login_required
 from users.forms import UserForm, PerfilForm
-from django.contrib.auth import login as auth_login, authenticate
+from django.contrib.auth import login as auth_login, authenticate, logout
+from django.contrib.auth.models import auth
+from django.contrib import messages
 
 def cadastro(request):
     if request.method == 'POST':
@@ -16,11 +18,11 @@ def cadastro(request):
 
             perfil.save()
 
-            username = form.cleaned_data.get('username')
+            email = form.cleaned_data.get('username')
             password = form.cleaned_data.get('password1')
-            user = authenticate(username=username, password=password)
+            user = authenticate(username=email, password=password)
             auth_login(request, user)
-            return redirect('login')
+            return redirect('/')
     else:
         form = UserForm(request.POST)
         form_perfil = PerfilForm(request.POST)
@@ -34,4 +36,23 @@ def cadastro(request):
 
 
 def login(request):
-    return render(request, 'registration/login.html')
+    if request.method == 'POST':
+        email = request.POST['email']
+        password = request.POST['password']
+        print(email)
+        print(password)
+        user = authenticate(username=email, password=password)
+        print(user)
+        if user is not None:
+            auth.login(request, user)
+            return redirect('/')
+        else:
+            messages.info(request, 'credenciais inválidas')
+            return redirect('login')
+    
+    else:
+        return render(request, 'registration/login.html')
+
+def logout_view(request):
+    logout(request)
+    return redirect('/')

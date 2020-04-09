@@ -9,12 +9,22 @@
                     <h4 class="card-tittle text-center">Login</h4>
                     <form method="POST">
                         {% csrf_token %}
-                        <input type="hidden" name="next" value="{{ next }}">
-                        {{ form|crispy }}    
-                        <button type="submit" class="btn btn-primary">Logar</button>
-                    </form>        
+                        <br>
+                        <input type="text" name="email" placeholder="Email" class="form-control">
+                        <br>
+                        <input type="password" name="password" placeholder="Senha" class="form-control">
+                        <br>
+                        <button type="submit" class="btn btn-primary btn-block">Logar</button>
+                    </form>  
+                    <div>
+                        {% for message in messages %}
+                            <h6>{{ message }}</h3>
+                        {% endfor %}
+                    </div>      
                 </div>
-            </div>
+            </div>email
+            
         </div>    
+        
     </div>
 {% endblock conteudo %}

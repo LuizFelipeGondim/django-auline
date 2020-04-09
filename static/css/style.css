@@ -21,6 +21,10 @@ body{
     border-radius: 10px;
     background-color: #5ce1e6 ;
 }
+
+.form-cadastro .form-group label{
+    color: #ffffff;
+}
 .btn-primary{
     background-color: #ff914d;
     border: 0px;

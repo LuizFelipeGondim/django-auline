@@ -9,51 +9,52 @@
       <h1 class="h3 mb-3 font-weight-normal">Cadastro</h1>
       {% csrf_token %}
       <div class="form-group">
-        {{ form.username.label }}
+        <label for="username">Usuário</label>
         {{ form.username }}
       </div>
       <div class="form-row">
         <div class="form-group col-md-6">
-          {{ form.first_name.label }}
+          <label for="first_name">Primeiro Nome</label>
           {{ form.first_name }}
         </div>
         <div class="form-group col-md-6">
-          {{ form.last_name.label }}
+          <label for="last_name">Sobrenome</label>
           {{ form.last_name }}
         </div>
       </div>
       <div class="form-group">
-        {{ form.email.label }}
+        <label for="email">Email</label>
         {{ form.email }}
       </div>
       <div class="form-row">
         <div class="form-group col-md-6">
-          {{ form.password1.label }}
+          <label for="password1">Informe a senha</label>
           {{ form.password1 }}
         </div>
         <div class="form-group col-md-6">
-          {{ form.password2.label }}
+          <label for="password2">Confirme a senha</label>
           {{ form.password2 }}
         </div>
       </div>
       <div class="form-row">
         <div class="form-group col-md-6">
-          {{ form_perfil.telefone.label }}
+          <label for="telefone">Telefone para contato</label>
           {{ form_perfil.telefone }}
         </div>
         <div class="form-group col-md-6">
-          {{ form_perfil.data_de_nascimento.label }}
+          <label for="data_de_nascimento">Data de Nascimento</label>
           {{ form_perfil.data_de_nascimento }}
         </div>
       </div>
       <div class="form-group">
-        {{ form_perfil.cidade_usuario.label }}
+        <label for="cidade_usuario">Cidade</label>
         {{ form_perfil.cidade_usuario }}
       </div>
       <div class="form-group">
-        {{ form_perfil.rua_usuario.label }}
+        <label for="rua_usuario">Rua</label>
         {{ form_perfil.rua_usuario }}
       </div>
+        
       <input type="submit" class="btn btn-primary" value="Cadastrar">
     </form>
   </div>
