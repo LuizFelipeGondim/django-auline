@@ -31,10 +31,10 @@ class Animal(models.Model):
     vacinado = models.BooleanField('Vacinado', blank=True)
     vermifugado = models.BooleanField('Vermifugado', blank=True)
     castrado = models.BooleanField('Castrado', blank=True)
- 
+    estado = models.CharField('Estado', max_length=50)
     cidade = models.CharField('Cidade', max_length=50)
     rua = models.CharField('Rua', max_length=70)
-    numero = models.CharField('Número', max_length=5)
+
 
     class Meta:
         ordering = ('-data_pub', )

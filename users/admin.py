@@ -1,10 +1,10 @@
 from django.contrib import admin
-from django.contrib.auth.admin import UserAdmin
-from django.contrib.auth.models import User
+'''from django.contrib.auth.admin import UserAdmin
+from django.contrib.auth.models import User'''
 
 from .models import Perfil
 
-class PerfilInline(admin.StackedInline):
+'''class PerfilInline(admin.StackedInline):
     model = Perfil
     can_delete = False
     verbose_name_plural = 'Perfil'
@@ -17,7 +17,7 @@ class CustomUserAdmin(UserAdmin):
     list_select_related = ('perfil', )
 
     def get_location(self, instance):
-        return instance.perfil.endereco
+        return instance.perfil.cidade_usuario
     get_location.short_description = 'Endereço'
 
     def get_inline_instances(self, request, obj=None):
@@ -26,5 +26,5 @@ class CustomUserAdmin(UserAdmin):
         return super(CustomUserAdmin, self).get_inline_instances(request, obj)
 
 
-admin.site.unregister(User)
-admin.site.register(User, CustomUserAdmin)
+admin.site.unregister(User)'''
+admin.site.register(Perfil)

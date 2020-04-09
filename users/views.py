@@ -1,18 +1,37 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required #@login_required
-from users.forms import UserModelForm
+from users.forms import UserForm, PerfilForm
+from django.contrib.auth import login as auth_login, authenticate
 
 def cadastro(request):
-    form = UserModelForm(request.POST or None) 
-    
-    context = {'form':form}
     if request.method == 'POST':
-        if form.is_valid():
-            form.save()
-            return login(request)
+        form = UserForm(request.POST)
+        form_perfil = PerfilForm(request.POST)
 
-    return render(request, 'cadastro.html', context)
+        if form.is_valid() and form_perfil.is_valid():
+            user = form.save()
+
+            perfil = form_perfil.save(commit=False)
+            perfil.user = user
+
+            perfil.save()
+
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password1')
+            user = authenticate(username=username, password=password)
+            auth_login(request, user)
+            return redirect('login')
+    else:
+        form = UserForm(request.POST)
+        form_perfil = PerfilForm(request.POST)
+
+    contexto = {
+        'form':form,
+        'form_perfil':form_perfil,
+    }
+
+    return render(request, 'cadastro.html', contexto)
+
 
 def login(request):
-    form = LoginModelForm(request.POST or None)
-    context = {'form':form}
+    return render(request, 'registration/login.html')

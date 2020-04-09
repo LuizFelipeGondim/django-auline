@@ -28,16 +28,35 @@
       </div>
       <div class="form-row">
         <div class="form-group col-md-6">
-          {{ form.password.label }}
-          {{ form.password }}
+          {{ form.password1.label }}
+          {{ form.password1 }}
         </div>
         <div class="form-group col-md-6">
-          {{ form.last_name.label }}
-          {{ form.last_name }}
+          {{ form.password2.label }}
+          {{ form.password2 }}
         </div>
       </div>
-      <button type="submit" class="btn btn-primary">Cadastrar</button>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          {{ form_perfil.telefone.label }}
+          {{ form_perfil.telefone }}
+        </div>
+        <div class="form-group col-md-6">
+          {{ form_perfil.data_de_nascimento.label }}
+          {{ form_perfil.data_de_nascimento }}
+        </div>
+      </div>
+      <div class="form-group">
+        {{ form_perfil.cidade_usuario.label }}
+        {{ form_perfil.cidade_usuario }}
+      </div>
+      <div class="form-group">
+        {{ form_perfil.rua_usuario.label }}
+        {{ form_perfil.rua_usuario }}
+      </div>
+      <input type="submit" class="btn btn-primary" value="Cadastrar">
     </form>
   </div>
+  
 </div>
 {% endblock conteudo %}
