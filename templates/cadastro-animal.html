@@ -27,8 +27,12 @@
         {{form.cidade}}
         {{form.rua.label}}
         {{form.rua}}
-        {{form.numero.label}}
-        {{form.numero}}
+        {{form.usuario.label}}
+        {{form.usuario}}
+        {% for e in form.errors.usuario%}
+            <p>{{ e }}</p>
+        {% endfor %}
+
         <button type='submit' class="btn btn-primary"> Enviar </button>
     </form>
 
