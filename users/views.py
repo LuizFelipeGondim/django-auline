@@ -12,7 +12,7 @@ def cadastro(request):
 
         if form.is_valid() and form_perfil.is_valid():
             user = form.save()
-
+            print(user)
             perfil = form_perfil.save(commit=False)
             perfil.user = user
 

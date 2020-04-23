@@ -5,4 +5,4 @@ class AnimalForm(ModelForm):
     class Meta:
         model = Animal
         fields = ['nome', 'caracteristicas', 'imagem', 'sexo', 'vacinado', 'vermifugado',
-        'categoria', 'castrado', 'cidade', 'rua', 'porte', 'usuario'] 
+        'categoria', 'castrado', 'cidade', 'rua', 'porte', 'estado'] 
