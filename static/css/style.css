@@ -2,6 +2,12 @@ body{
     background-color: #E7F2FA;
 }
 
+* {
+    margin:0;
+    padding: 0;
+    box-sizing: border-box
+}
+
 .card{
     margin: 10px;
     padding: 5px;
@@ -35,4 +41,102 @@ body{
 }
 .row{
     margin: 0;
+}
+
+.profilebar{
+    background-color: #5ce1e6;
+    width: 100%;
+    height: 250px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.img-profile{
+    border-radius: 200px;
+    height: 240px;
+    width: 240px;
+}
+.sidebar {
+    margin: 0;
+    padding: 0;
+    width: 20%;
+    background-color: #f1f1f1;
+    height: 100%;
+    overflow: auto;
+  }
+  
+  /* Sidebar links */
+  .sidebar a {
+    display: block;
+    color: black;
+    padding: 16px;
+    text-decoration: none;
+  }
+  
+  /* Active/current link */
+  .sidebar a.active {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  /* Links on mouse-over */
+  .sidebar a:hover:not(.active) {
+    background-color: #555;
+    color: white;
+  }
+  
+  /* Page content. The value of the margin-left property should match the value of the sidebar's width property */
+  div.content-profile {
+    margin-left: 10px;
+    padding: 1px 16px;
+    width: 78%;
+  }
+  
+  /* On screens that are less than 700px wide, make the sidebar into a topbar */
+  @media screen and (max-width: 700px) {
+    .sidebar {
+      width: 100%;
+      height: auto;
+      position: relative;
+    }
+    .sidebar a {
+        float: left;
+    }
+    div.content-profile {
+        margin-left: 0;
+    }
+  }
+  
+  /* On screens that are less than 400px, display the bar vertically, instead of horizontally */
+  @media screen and (max-width: 400px) {
+    .sidebar a {
+      text-align: center;
+      float: none;
+    }
+  }
+
+.content {
+    width: 100%;
+    display:flex;
+    justify-content: center;
+}
+.row{
+    margin-top: 15px;
+    width: 98%;
+}
+
+@media screen and (max-width: 500px) {
+    .profilebar{
+        width: 100%;
+        height: 350px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .img-profile{
+        margin-bottom: 10px;
+    }
 }

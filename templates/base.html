@@ -35,9 +35,13 @@
 
         {% if user.is_authenticated %}
           <li class="nav-item active">
+            <a class="nav-link" href="perfil/"> Perfil </a>
+          </li>
+          <li class="nav-item active">
             <a href="accounts/logout"><button class="btn btn-outline-info my-2 my-sm-0" 
               type="submit">Sair</button></a>
           </li>
+
         {% else %}  
           <li class="nav-item active">
             <a href="accounts/login">
@@ -107,7 +111,5 @@
         </div>
       </footer>
     </div>
-
-
 </body>
 </html>
