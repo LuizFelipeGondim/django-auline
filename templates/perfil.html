@@ -1,31 +1,36 @@
 {% extends 'base.html' %}
-{% load static %}
+
 {% block titulo %} Perfil {% endblock titulo %}
+
 {% block conteudo %}
 
     <div class="profilebar">
-        <img src="../media/perfil/unknow.png" alt="usuario" class="img-profile">
-        <h3>Usuário</h3>
+        <img src="../media/perfil/{{perfil_usuario.foto}}" alt="{{usuario.username}}" class="img-profile">
+        <h3>{{usuario.username}}</h3>
     </div>
     <div class="content">
         <div class="row">
             <div class="sidebar">
-            <a class="active" href="#home">Home</a>
-            <a href="#news">News</a>
-            <a href="#contact">Contact</a>
-            <a href="#about">About</a>
+            <a class="active" href="{% url 'animais'%}">Animais cadastrados</a>
+            <a href="{% url 'informacoes-pessoais'%}">Informações pessoais</a>
+            <a href="{% url 'alterar-informacoes' usuario.id %}">Alterar Informações pessoais</a>
+            <a href="{% url 'excluir-conta' usuario.id %}">Excluir conta</a>
+            <a href="{% url 'logout' %}">Sair</a>
           </div>
+          
           
           <!-- Page content -->
           <div class="content-profile">
                 {% for animal in animais %}
-                    <div class="card col-sm-2" >
-                        <img class="card-img-top" src="media/{{animal.imagem}}" alt="{{animal.nome}}">
+                    <div class="card col-sm-2" id="{{animal.id}}" onload="categoria()">
+                        <img class="card-img-top" src="../media/{{animal.imagem}}" alt="{{animal.nome}}">
                         <div class="card-body">
                             <p>{{animal.usuario}}</p>
                             <p class="card-text">{{animal.nome}}</p>
                         </div>
                     </div>
+                    
+                    </script>
                 {% endfor %} 
           </div>
         </div>

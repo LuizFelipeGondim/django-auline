@@ -1,6 +1,9 @@
-from .views import perfil
-from django.conf.urls import url
+from .views import perfil, alterar, informacoes, excluir_conta
+from django.urls import path
 
 urlpatterns = [
-    url('', perfil),
+    path('animais', perfil, name='animais'),
+    path('alterar-informacoes/<int:id>/', alterar, name='alterar-informacoes'),
+    path('informacoes-pessoais', informacoes, name='informacoes-pessoais'),
+    path('excluir-conta/<int:id>/', excluir_conta, name='excluir-conta'),
 ]

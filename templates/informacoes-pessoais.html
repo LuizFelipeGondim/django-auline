@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block titulo %} Informações pessoais {% endblock titulo %}
+
+{% block conteudo %}
+
+    <div class="profilebar">
+        <img src="../media/perfil/{{perfil_usuario.foto}}" alt="{{usuario.username}}" class="img-profile">
+        <h3>{{usuario.username}}</h3>
+    </div>
+    <div class="content">
+        <div class="row">
+            <div class="sidebar">
+            <a href="{% url 'animais'%}">Animais cadastrados</a>
+            <a class="active" href="{% url 'informacoes-pessoais'%}">Informações pessoais</a>
+            <a href="{% url 'alterar-informacoes' usuario.id %}">Alterar Informações pessoais</a>
+            <a href="#">Excluir conta</a>
+            <a href="{% url 'logout' %}">Sair</a>
+          </div>
+          
+          <!-- Page content -->
+          <div class="content-profile">
+                <p>usuário: {{usuario.username}}</p>
+                <p>Nome: {{usuario.first_name}}</p>
+                <p>Sobrenome: {{usuario.last_name}}</p>
+                <p>Email: {{usuario.email}}</p>
+                <p>Data de nascimento: {{perfil_usuario.data_de_nascimento}}</p>
+                <p>Telefone para contato: {{perfil_usuario.telefone}} </p>
+                <p>Estado: {{perfil_usuario.estado}}</p>
+                <p>Cidade: {{perfil_usuario.cidade}}</p>
+                <p>Rua: {{perfil_usuario.rua}}</p>
+                <p></p>
+          </div>
+        </div>
+    </div>
+    
+{% endblock conteudo %}

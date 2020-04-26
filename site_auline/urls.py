@@ -6,8 +6,8 @@ from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('publicacoes.urls')),
-    path('accounts', include('users.urls')),
-    path('accounts', include('django.contrib.auth.urls')),
-    path('perfil', include('perfis.urls')),
+    path('accounts/', include('users.urls'), name='accounts'),
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('perfil/', include('perfis.urls'), name='perfil'),
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
