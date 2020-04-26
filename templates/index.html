@@ -6,8 +6,20 @@
     <div class="container">
         <div class="row justify-content-lg-center">
             {% for animal in lista_de_animais %}
-                <div class="card col-sm-2" >
-                    <img class="card-img-top" src="media/{{animal.imagem}}" alt="{{animal.nome}}">
+                
+                <div class="card col-sm-3" >
+                    <div class="post-avatar">
+                        {% for perfil in perfil_usuarios %}
+                            {% if perfil.user == animal.usuario %}
+                                <img src="../media/perfil/{{perfil.foto}}" alt="Avatar" class="avatar">
+                                <p class="author"> {{animal.usuario}} </p>
+                            {% endif %}
+                        {% endfor %}
+    
+                    </div>
+                    <a href="{% url 'perfil-animal' animal.id %}">
+                        <img class="card-img-top" src="../media/{{animal.imagem}}" alt="{{animal.nome}}">
+                    </a>
                     <div class="card-body">
                         <p>{{animal.usuario}}</p>
                         <p class="card-text">{{animal.nome}}</p>

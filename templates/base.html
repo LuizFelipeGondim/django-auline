@@ -32,18 +32,21 @@
         <li class="nav-item active">
             <a class="nav-link" href="#"> Sobre </a>
         </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url '' %}"> Home </a>
+        </li>
 
         {% if user.is_authenticated %}
           <li class="nav-item active">
-            <a class="nav-link" href="perfil/animais"> Perfil </a>
+            <a class="nav-link" href="{% url 'animais' %}"> Perfil </a>
           </li>
         {% else %}  
           <li class="nav-item active">
-            <a href="accounts/login">
+            <a href="{% url 'login' %}">
               <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Login</button></a>
           </li>
           <li class="nav-item active">
-            <a href="accounts/cadastro">
+            <a href="{% url 'cadastro' %}"tr>
               <button class="btn btn-warning" type="submit">Cadastro</button></a>
           </li>
         {% endif %}

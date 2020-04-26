@@ -11,6 +11,34 @@ body{
 .card{
     margin: 10px;
     padding: 5px;
+    height: 350px;
+    max-width: 272px;
+}
+
+.post-avatar .avatar {
+    vertical-align: middle;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+
+.post-avatar .author{
+    margin-top: 20px;
+}
+
+
+.post-avatar{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 35px;
+}
+
+.card-img-top{
+    margin-top: 5px;
+    width: 260px;
+    height: 180px;
 }
 
 .nav-item{
@@ -41,7 +69,10 @@ body{
 }
 .row{
     margin: 0;
+    justify-content: center;
 }
+
+/*perfil----*/
 
 .profilebar{
     background-color: #5ce1e6;
@@ -54,8 +85,9 @@ body{
 
 .img-profile{
     border-radius: 200px;
-    height: 240px;
-    width: 240px;
+    height: 220px;
+    width: 220px;
+    margin-left: 30px;
 }
 .sidebar {
     margin: 0;
@@ -65,28 +97,25 @@ body{
     height: 100%;
     overflow: auto;
   }
-  
-  /* Sidebar links */
+
   .sidebar a {
     display: block;
     color: black;
     padding: 16px;
     text-decoration: none;
+    font-weight: 700;
   }
-  
-  /* Active/current link */
+
   .sidebar a.active {
-    background-color: #5ce1e6;
+    background-color: #ff914d;
     color: white;
   }
   
-  /* Links on mouse-over */
   .sidebar a:hover:not(.active) {
-    background-color: #555;
+    background-color: #f5a473;
     color: white;
   }
   
-  /* Page content. The value of the margin-left property should match the value of the sidebar's width property */
   div.content-profile {
     margin-left: 10px;
     padding: 1px 16px;
@@ -96,7 +125,7 @@ body{
     flex-wrap: wrap;
   }
   
-  /* On screens that are less than 700px wide, make the sidebar into a topbar */
+  
   @media screen and (max-width: 700px) {
     .sidebar {
       width: 100%;
@@ -111,7 +140,6 @@ body{
     }
   }
   
-  /* On screens that are less than 400px, display the bar vertically, instead of horizontally */
   @media screen and (max-width: 400px) {
     .sidebar a {
       text-align: center;
@@ -142,4 +170,9 @@ body{
     .img-profile{
         margin-bottom: 10px;
     }
+}
+
+.img-profile-animal{
+    width: 217px;
+    height: 170px;
 }
