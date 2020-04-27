@@ -15,6 +15,20 @@ body{
     max-width: 272px;
 }
 
+.card .card-body .card-body-top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 25px;
+}
+
+.card .card-body .card-body-top .trash{
+    opacity: 0.4;
+}
+
+.card .card-body .card-body-top .trash:hover{
+    opacity:0.7;
+}
 .post-avatar .avatar {
     vertical-align: middle;
     width: 35px;

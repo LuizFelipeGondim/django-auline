@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block titulo %} Perfil {% endblock titulo %}
 
 {% block conteudo %}
@@ -26,8 +26,12 @@
                         <img class="card-img-top img-profile-animal" 
                         src="../media/{{animal.imagem}}" alt="{{animal.nome}}">
                         <div class="card-body">
-                            <p>{{animal.usuario}}</p>
-                            <p>{{animal.nome}}</p>
+                            <div class="card-body-top">
+                                <p>{{animal.nome}}</p>
+                                <a href="{% url 'excluir-animal' animal.id %}" class="trash">
+                                    <img src="{% static 'imagens/trash-2.svg' %}" alt="apagar">
+                                </a>
+                            </div>
                         </div>
                     </div>
                     
