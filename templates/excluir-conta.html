@@ -3,6 +3,7 @@
 {% block conteudo %}
     <h1>Você tem certeza que quer excluir sua conta?</h1>
     <form method="POST">
+        {% csrf_token %}
         <button type="submit">Confirmar</button>
     </form>
 {% endblock conteudo %}

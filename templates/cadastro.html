@@ -135,6 +135,18 @@
           </span>
         {% endif %}
       </div>
+      <div class="form-group">
+        <label for="rua_usuario">Estado</label>
+        {{ form_perfil.estado_usuario }}
+        {% if form_perfil.errors.estado_usuario %}
+          <span style="color: white;">
+            <br>  
+            {% for e in form_perfil.errors.estado_usuario %}
+                <p>{{ e }}</p>
+            {% endfor %}
+          </span>
+        {% endif %}
+      </div>
         
       <input type="submit" class="btn btn-primary" value="Cadastrar">
     </form>

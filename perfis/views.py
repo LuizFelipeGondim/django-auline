@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from publicacoes.models import Animal
 from django.contrib.auth.models import User
 from users.models import Perfil

@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth.decorators import login_required #@login_required
+from django.contrib.auth.decorators import login_required 
 from users.forms import UserForm, PerfilForm
 from django.contrib.auth import login as auth_login, authenticate, logout
 from django.contrib.auth.models import auth
@@ -9,10 +9,10 @@ def cadastro(request):
     if request.method == 'POST':
         form = UserForm(request.POST)
         form_perfil = PerfilForm(request.POST)
-
+        print(form_perfil.is_valid())
         if form.is_valid() and form_perfil.is_valid():
             user = form.save()
-            print(user)
+            
             perfil = form_perfil.save(commit=False)
             perfil.user = user
 
@@ -39,10 +39,7 @@ def login(request):
     if request.method == 'POST':
         email = request.POST['email']
         password = request.POST['password']
-        print(email)
-        print(password)
         user = authenticate(username=email, password=password)
-        print(user)
         if user is not None:
             auth.login(request, user)
             return redirect('/')
