@@ -8,6 +8,7 @@ body{
     box-sizing: border-box
 }
 
+/*cards-----*/
 .card{
     margin: 10px;
     padding: 5px;
@@ -63,6 +64,8 @@ body{
     max-width: 100%;
 }
 
+
+/*formularios-----*/
 .form-cadastro{
     margin: 10px;
     padding: 20px;
@@ -81,10 +84,7 @@ body{
 .btn-primary:hover{
     background-color: #f5a473;
 }
-.row{
-    margin: 0;
-    justify-content: center;
-}
+
 
 /*perfil----*/
 
@@ -166,10 +166,14 @@ body{
     display:flex;
     justify-content: center;
 }
+
 .row{
+    margin: 0;
+    justify-content: center;
     margin-top: 15px;
     width: 98%;
 }
+
 
 @media screen and (max-width: 500px) {
     .profilebar{
