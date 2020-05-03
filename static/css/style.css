@@ -23,11 +23,12 @@ body{
     height: 25px;
 }
 
-.card .card-body .card-body-top .trash{
+.card .card-body .card-body-top .icon-crud{
     opacity: 0.4;
+    text-decoration: none;
 }
 
-.card .card-body .card-body-top .trash:hover{
+.card .card-body .card-body-top .icon-crud:hover{
     opacity:0.7;
 }
 .post-avatar .avatar {

@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block titulo %} Editar Animal {% endblock titulo %}
+
+{% block conteudo %}
+
+    <div class="profilebar">
+        <img src="../../../media/{{perfil_usuario.foto}}" alt="{{usuario.username}}" class="img-profile">
+        <h3>{{usuario.username}}</h3>
+    </div>
+    <div class="content">
+        <div class="row">
+            <div class="sidebar">
+            <a href="{% url 'animais'%}">Animais cadastrados</a>
+            <a href="{% url 'informacoes-pessoais'%}">Informações pessoais</a>
+            <a href="{% url 'alterar-informacoes' usuario.id %}">Alterar Informações pessoais</a>
+            <a href="{% url 'excluir-conta' usuario.id %}">Excluir conta</a>
+            <a href="{% url 'logout' %}">Sair</a>
+          </div>
+          
+          
+          <!-- Page content -->
+          <div class="content-profile">
+            <div class="container">
+                <div class="row justify-content-lg-center">
+                  <form method="post" class="form-cadastro" enctype='multipart/form-data'>
+                    
+                    <h1 class="">Alterar dados</h1>
+                    {% csrf_token %}
+                    {{form.nome.label}}
+                    {{form.nome}}
+                    {{form.caracteristicas.label}}
+                    {{form.caracteristicas}}
+                    {{form.imagem.label}}
+                    {{form.imagem}}
+                    {{form.sexo.label}}
+                    {{form.sexo}}
+                    {{form.vacinado.label}}
+                    {{form.vacinado}}
+                    {{form.vermifugado.label}}
+                    {{form.vermifugado}}
+                    {{form.categoria.label}}
+                    {{form.categoria}}
+                    {{form.porte.label}}
+                    {{form.porte}}
+                    {{form.castrado.label}}
+                    {{form.castrado}}
+                    {{form.cidade.label}}
+                    {{form.cidade}}
+                    {{form.rua.label}}
+                    {{form.rua}}
+                    {{form.estado.label}}
+                    {{form.estado}}
+                      
+                    <input type="submit" class="btn btn-primary" value="Atualizar informações">
+                  </form>
+                </div>
+                
+              </div>
+          </div>
+        </div>
+        </div>
+    
+{% endblock conteudo %}

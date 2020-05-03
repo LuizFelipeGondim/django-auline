@@ -3,6 +3,7 @@ from publicacoes.models import Animal
 from django.contrib.auth.models import User
 from users.models import Perfil
 from users.forms import UserForm, PerfilForm
+from publicacoes.forms import AnimalForm
 from django.contrib.auth.decorators import login_required 
 
 @login_required
@@ -31,11 +32,11 @@ def alterar(request, id):
         'form':form,
         'form_perfil':form_perfil,
     }
-    print(form_perfil.is_valid())
-    if form_perfil.is_valid():
-        edit = form_perfil.save(commit=False)
-        edit.save()
-        return redirect('informacoes-pessoais')
+    if request.method == 'POST':
+        if form_perfil.is_valid():
+            edit = form_perfil.save(commit=False)
+            edit.save()
+            return redirect('informacoes-pessoais')
         
     return render(request,'alterar-informacoes.html', contexto)
 
@@ -63,7 +64,30 @@ def excluir_conta(request, id):
     return render(request, 'excluir-conta.html', contexto)
 
 @login_required
-def excluir_animal(request, id):
-    animal = Animal.objects.get(id=id)
+def excluir_animal(request, id_animal):
+    animal = Animal.objects.get(id=id_animal)
     animal.delete()
     return redirect('animais')
+
+@login_required
+def editar_animal(request, id_animal):
+    animal = Animal.objects.get(id=id_animal)
+    usuario = User.objects.get(id=request.user.id)
+    perfil_usuario = Perfil.objects.get(user=request.user.id)
+    form = AnimalForm(request.POST or None, request.FILES or None,
+                    instance=animal)
+    if request.user == animal.usuario:
+        contexto = {
+            'usuario':usuario,
+            'perfil_usuario':perfil_usuario,
+            'form':form,
+        }
+        if request.method == 'POST':
+            if form.is_valid():
+                edit = form.save(commit=False)
+                edit.save()
+                return redirect('animais')
+
+        return render(request, 'editar-animal.html', contexto)
+    else:
+        return redirect('animais')

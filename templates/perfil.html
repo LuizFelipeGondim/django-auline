@@ -28,9 +28,14 @@
                         <div class="card-body">
                             <div class="card-body-top">
                                 <p>{{animal.nome}}</p>
-                                <a href="{% url 'excluir-animal' animal.id %}" class="trash">
-                                    <img src="{% static 'imagens/trash-2.svg' %}" alt="apagar">
-                                </a>
+                                <div>
+                                    <a href="{% url 'editar-animal' animal.id %}" class="icon-crud">
+                                        <img src="{% static 'imagens/edit.svg' %}" alt="editar">
+                                    </a>
+                                    <a href="{% url 'excluir-animal' animal.id %}" class="icon-crud">
+                                        <img src="{% static 'imagens/trash-2.svg' %}" alt="apagar">
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
