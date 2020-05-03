@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils import timezone
 
 class Animal(models.Model):
 
@@ -41,3 +42,12 @@ class Animal(models.Model):
 
     def __str__(self):
         return self.nome
+
+
+class Comentario(models.Model):
+    autor = models.CharField('Autor', max_length=80)
+    data_coment = models.DateTimeField('Comentado em', default=timezone.now)
+    animal = models.ForeignKey('publicacoes.Animal', on_delete=models.CASCADE)
+    conteudo = models.TextField('Comentário', max_length=300)
+    aprovado = models.BooleanField(default=True)
+    avatar = models.CharField(max_length=50)

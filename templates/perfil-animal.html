@@ -4,7 +4,22 @@
 {% block conteudo %}
     <div class="container">
         <div class="row">
-            <img class="" src="../media/{{animal.imagem}}" alt="{{animal.nome}}">
+            <img class="img-animal" src="../../media/{{animal.imagem}}" alt="{{animal.nome}}">
         </div>
     </div>
+
+    <form method="post">
+        {% csrf_token %}
+        {{form.conteudo}}
+        <button type="submit"> Comentar </button>
+    </form>
+
+    {% for comentario in comentarios %}
+        {% if comentario.aprovado == True %}
+            <img src="../../media/{{comentario.avatar}}" alt="{{comentario.autor}}">
+            <p>{{comentario.autor}}</p>
+            <p>{{comentario.conteudo}}</p>
+        {% endif %}
+    {% endfor %} 
+
 {% endblock conteudo %}

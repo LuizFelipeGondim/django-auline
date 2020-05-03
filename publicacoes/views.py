@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
-from publicacoes.models import Animal
-from .forms import AnimalForm
+from publicacoes.models import Animal, Comentario
+from .forms import AnimalForm, ComentarioForm
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required 
 from users.models import Perfil
@@ -34,7 +34,22 @@ def cadastro_animal(request):
 
 def perfil_animal(request, id):
     animal = Animal.objects.get(id=id)
+    comentarios = Comentario.objects.filter(animal_id=animal.id)
+    print(comentarios)
+    form = ComentarioForm(request.POST or None)
     contexto = {
         'animal':animal,
+        'form':form,
+        'comentarios':comentarios,
     }
+
+    if form.is_valid():
+        user = User.objects.get(id=request.user.id)
+        user_profile = Perfil.objects.get(user=request.user.id)
+        comentario = form.save(commit=False)
+        comentario.animal = animal
+        comentario.avatar = user_profile.foto
+        comentario.autor = user.username
+        comentario.save()
+        return redirect('/')
     return render(request, 'perfil-animal.html', contexto) 
