@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from publicacoes.models import Animal, Comentario
+from .models import Animal, Comentario
 from .forms import AnimalForm, ComentarioForm
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required 

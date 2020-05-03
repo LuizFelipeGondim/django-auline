@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'publicacoes',
     'users',
     'perfis',
+    'contato',
 ]
 
 MIDDLEWARE = [
