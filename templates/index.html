@@ -7,11 +7,11 @@
         <div class="row justify-content-lg-center">
             {% for animal in lista_de_animais %}
                 
-                <div class="card col-sm-3" >
+                <div class="card col-sm-1" >
                     <div class="post-avatar">
                         {% for perfil in perfil_usuarios %}
                             {% if perfil.user == animal.usuario %}
-                                <img src="../media/perfil/{{perfil.foto}}" alt="Avatar" class="avatar">
+                                <img src="../media/{{perfil.foto}}" alt="Avatar" class="avatar">
                                 <p class="author"> {{animal.usuario}} </p>
                             {% endif %}
                         {% endfor %}

@@ -9,7 +9,7 @@
         <h3>{{usuario.username}}</h3>
     </div>
     <div class="content">
-        <div class="row">
+        <div class="row-profile">
             <div class="sidebar">
             <a class="active" href="{% url 'animais'%}">Animais cadastrados</a>
             <a href="{% url 'informacoes-pessoais'%}">Informações pessoais</a>
@@ -22,7 +22,7 @@
           <!-- Page content -->
           <div class="content-profile">
                 {% for animal in animais %}
-                    <div class="card col-sm-3">
+                    <div class="card-perfil">
                         <img class="card-img-top img-profile-animal" 
                         src="../media/{{animal.imagem}}" alt="{{animal.nome}}">
                         <div class="card-body">

@@ -2,38 +2,47 @@
 {% block titulo %} Cadastro do Animal {% endblock titulo %}
 
 {% block conteudo %}
+    <div class="container">
+        <div class="row justify-content-lg-center">
+            <form method='POST' enctype='multipart/form-data' class="form-envio">
+                <h1 class="h3 mb-3 "> Cadastro do animal </h1>
+                {% csrf_token %}
+                {{form.nome.label}}
+                {{form.nome}}
+                {{form.caracteristicas.label}}
+                {{form.caracteristicas}}
+                {{form.cidade.label}}
+                {{form.cidade}}
+                {{form.rua.label}}
+                {{form.rua}}
+                {{form.estado.label}}
+                {{form.estado}}
+                {{form.imagem.label}}
+                {{form.imagem}}
+                {{form.sexo.label}}
+                {{form.sexo}}
+                {{form.categoria.label}}
+                {{form.categoria}}
+                {{form.porte.label}}
+                {{form.porte}}
+                <div class="form-checkbox">
+                    {{form.vacinado.label}}
+                    {{form.vacinado}}
+                </div>
+                <div class="form-checkbox">
+                    {{form.vermifugado.label}}
+                    {{form.vermifugado}}
+                </div>
+                <div class="form-checkbox">
+                    {{form.castrado.label}}
+                    {{form.castrado}}
+                </div>
+                {% for e in form.errors.usuario%}
+                    <p>{{ e }}</p>
+                {% endfor %}
 
-    <form method='POST' enctype='multipart/form-data'>
-        {% csrf_token %}
-        {{form.nome.label}}
-        {{form.nome}}
-        {{form.caracteristicas.label}}
-        {{form.caracteristicas}}
-        {{form.imagem.label}}
-        {{form.imagem}}
-        {{form.sexo.label}}
-        {{form.sexo}}
-        {{form.vacinado.label}}
-        {{form.vacinado}}
-        {{form.vermifugado.label}}
-        {{form.vermifugado}}
-        {{form.categoria.label}}
-        {{form.categoria}}
-        {{form.porte.label}}
-        {{form.porte}}
-        {{form.castrado.label}}
-        {{form.castrado}}
-        {{form.cidade.label}}
-        {{form.cidade}}
-        {{form.rua.label}}
-        {{form.rua}}
-        {{form.estado.label}}
-        {{form.estado}}
-        {% for e in form.errors.usuario%}
-            <p>{{ e }}</p>
-        {% endfor %}
-
-        <button type='submit' class="btn btn-primary"> Enviar </button>
-    </form>
-
+                <button type='submit' class="btn btn-primary"> Enviar </button>
+            </form>
+        </div>
+    </div>
 {% endblock conteudo %}

@@ -8,7 +8,7 @@
         <h3>{{usuario.username}}</h3>
     </div>
     <div class="content">
-        <div class="row">
+        <div class="row-profile">
             <div class="sidebar">
             <a href="{% url 'animais'%}">Animais cadastrados</a>
             <a class="active" href="{% url 'informacoes-pessoais'%}">Informações pessoais</a>
@@ -25,9 +25,9 @@
                 <p>Email: {{usuario.email}}</p>
                 <p>Data de nascimento: {{perfil_usuario.data_de_nascimento}}</p>
                 <p>Telefone para contato: {{perfil_usuario.telefone}} </p>
-                <p>Estado: {{perfil_usuario.estado}}</p>
-                <p>Cidade: {{perfil_usuario.cidade}}</p>
-                <p>Rua: {{perfil_usuario.rua}}</p>
+                <p>Estado: {{perfil_usuario.estado_usuario}}</p>
+                <p>Cidade: {{perfil_usuario.cidade_usuario}}</p>
+                <p>Rua: {{perfil_usuario.rua_usuario}}</p>
                 <p></p>
           </div>
         </div>

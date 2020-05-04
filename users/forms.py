@@ -37,7 +37,6 @@ class PerfilForm(forms.ModelForm):
         widgets = {
             'data_de_nascimento': forms.DateInput(attrs={'class':'form-control', 'placeholder':'DD/MM/YYYY'}),
             'telefone': forms.TextInput(attrs={'class':'form-control', 'placeholder':'(77)98888-8888'}),
-            #'foto': forms.FileInput(),
             'cidade_usuario': forms.TextInput(attrs={'class':'form-control labe', }),
             'estado_usuario': forms.TextInput(attrs={'class':'form-control'}),
             'rua_usuario': forms.TextInput(attrs={'class':'form-control'}),

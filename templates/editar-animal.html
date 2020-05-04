@@ -9,8 +9,8 @@
         <h3>{{usuario.username}}</h3>
     </div>
     <div class="content">
-        <div class="row">
-            <div class="sidebar">
+        <div class="row-profile">
+          <div class="sidebar">
             <a href="{% url 'animais'%}">Animais cadastrados</a>
             <a href="{% url 'informacoes-pessoais'%}">Informações pessoais</a>
             <a href="{% url 'alterar-informacoes' usuario.id %}">Alterar Informações pessoais</a>
@@ -23,36 +23,44 @@
           <div class="content-profile">
             <div class="container">
                 <div class="row justify-content-lg-center">
-                  <form method="post" class="form-cadastro" enctype='multipart/form-data'>
-                    
-                    <h1 class="">Alterar dados</h1>
+                  <form method="post" class="form-profile" enctype='multipart/form-data'>
+                    <h1 class="h3 mb-3 "> Editar informações do animal </h1>
                     {% csrf_token %}
                     {{form.nome.label}}
                     {{form.nome}}
                     {{form.caracteristicas.label}}
                     {{form.caracteristicas}}
-                    {{form.imagem.label}}
-                    {{form.imagem}}
-                    {{form.sexo.label}}
-                    {{form.sexo}}
-                    {{form.vacinado.label}}
-                    {{form.vacinado}}
-                    {{form.vermifugado.label}}
-                    {{form.vermifugado}}
-                    {{form.categoria.label}}
-                    {{form.categoria}}
-                    {{form.porte.label}}
-                    {{form.porte}}
-                    {{form.castrado.label}}
-                    {{form.castrado}}
                     {{form.cidade.label}}
                     {{form.cidade}}
                     {{form.rua.label}}
                     {{form.rua}}
                     {{form.estado.label}}
                     {{form.estado}}
-                      
-                    <input type="submit" class="btn btn-primary" value="Atualizar informações">
+                    {{form.imagem.label}}
+                    {{form.imagem}}
+                    {{form.sexo.label}}
+                    {{form.sexo}}
+                    {{form.categoria.label}}
+                    {{form.categoria}}
+                    {{form.porte.label}}
+                    {{form.porte}}
+                    <div class="form-checkbox">
+                        {{form.vacinado.label}}
+                        {{form.vacinado}}
+                    </div>
+                    <div class="form-checkbox">
+                        {{form.vermifugado.label}}
+                        {{form.vermifugado}}
+                    </div>
+                    <div class="form-checkbox">
+                        {{form.castrado.label}}
+                        {{form.castrado}}
+                    </div>
+                    {% for e in form.errors.usuario%}
+                        <p>{{ e }}</p>
+                    {% endfor %}
+
+                    <button type='submit' class="btn btn-primary"> Enviar </button>
                   </form>
                 </div>
                 
