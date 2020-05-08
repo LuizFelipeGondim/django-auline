@@ -6,14 +6,22 @@ from django.contrib.auth.decorators import login_required
 from users.models import Perfil
 
 def lista_animal(request):
+    categorias = {}
+    ids = []
     perfil_usuarios = Perfil.objects.all()
     usuarios = User.objects.all()
     lista_de_animais = Animal.objects.all()
+
+    for animal in lista_de_animais:
+        categorias[animal.id] = animal.categoria
+        ids.append(animal.id)
     
     contexto = {
         'lista_de_animais': lista_de_animais,
         'perfil_usuarios':perfil_usuarios,
         'usuarios':usuarios,
+        'categorias': categorias,
+        'ids': ids,
     }
     return render(request, 'index.html', contexto)
 

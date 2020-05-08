@@ -1,13 +1,18 @@
 {% extends 'base.html' %}
 {% load static %}
+
 {% block titulo %} Feed {% endblock titulo %}
 
 {% block conteudo %}
+{{ categorias|json_script:'categorias' }}
+{{ ids|json_script:'ids' }}
+<script type="text/javascript" src="{% static 'js/categorias.js' %}"></script>
+
     <div class="container">
         <div class="row justify-content-lg-center">
             {% for animal in lista_de_animais %}
                 
-                <div class="card col-sm-1" >
+        <div class="card col-sm-1" id="{{animal.id}}" >
                     <div class="post-avatar">
                         {% for perfil in perfil_usuarios %}
                             {% if perfil.user == animal.usuario %}
@@ -15,7 +20,7 @@
                                 <p class="author"> {{animal.usuario}} </p>
                             {% endif %}
                         {% endfor %}
-    
+
                     </div>
                     <a href="{% url 'perfil-animal' animal.id %}">
                         <img class="card-img-top" src="../media/{{animal.imagem}}" alt="{{animal.nome}}">
@@ -23,9 +28,13 @@
                     <div class="card-body">
                         <p>{{animal.usuario}}</p>
                         <p class="card-text">{{animal.nome}}</p>
+                        <p class="card-text">{{animal.categoria}}</p>
+                        
                     </div>
-                </div>
+                </div >
             {% endfor %}
         </div>  
     </div>
-{% endblock conteudo %}}
+
+
+{% endblock conteudo %}

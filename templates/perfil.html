@@ -3,6 +3,9 @@
 {% block titulo %} Perfil {% endblock titulo %}
 
 {% block conteudo %}
+{{ categorias|json_script:'categorias' }}
+{{ ids|json_script:'ids' }}
+<script type="text/javascript" src="{% static 'js/categorias.js' %}"></script>
 
     <div class="profilebar">
         <img src="../media/{{perfil_usuario.foto}}" alt="{{usuario.username}}" class="img-profile">
@@ -22,7 +25,7 @@
           <!-- Page content -->
           <div class="content-profile">
                 {% for animal in animais %}
-                    <div class="card-perfil">
+                    <div class="card-perfil" id="{{animal.id}}">
                         <img class="card-img-top img-profile-animal" 
                         src="../media/{{animal.imagem}}" alt="{{animal.nome}}">
                         <div class="card-body">
