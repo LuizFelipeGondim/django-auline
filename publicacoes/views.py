@@ -4,6 +4,7 @@ from .forms import AnimalForm, ComentarioForm
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required 
 from users.models import Perfil
+from django.core.paginator import Paginator
 
 def lista_animal(request):
     categorias = {}
@@ -15,9 +16,13 @@ def lista_animal(request):
     for animal in lista_de_animais:
         categorias[animal.id] = animal.categoria
         ids.append(animal.id)
+
+    paginator = Paginator(lista_de_animais, 10)
+    page = request.GET.get('page')
+    animais = paginator.get_page(page)
     
     contexto = {
-        'lista_de_animais': lista_de_animais,
+        'animais': animais,
         'perfil_usuarios':perfil_usuarios,
         'usuarios':usuarios,
         'categorias': categorias,

@@ -10,7 +10,7 @@
 
     <div class="container">
         <div class="row justify-content-lg-center">
-            {% for animal in lista_de_animais %}
+            {% for animal in animais %}
                 
         <div class="card col-sm-1" id="{{animal.id}}" >
                     <div class="post-avatar">
@@ -33,6 +33,19 @@
                     </div>
                 </div >
             {% endfor %}
+            <div class="paginacao">
+                <span class="step-links">
+                    {% if animais.has_previous %}
+                        <a href="?page={{animais.previous_page_number}}"><button><</button></a>
+                    {% endif %}
+                    <span class="current">
+                        {{ animais.number }} de {{ animais.paginator.num_pages }}
+                    </span>
+                    {% if animais.has_next %}
+                        <a href="?page={{animais.next_page_number}}"><button>></button></a>
+                    {% endif %}
+                </span>
+            </div>
         </div>  
     </div>
 
