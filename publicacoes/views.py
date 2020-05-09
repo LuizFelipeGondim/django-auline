@@ -13,14 +13,14 @@ def lista_animal(request):
     usuarios = User.objects.all()
     lista_de_animais = Animal.objects.all()
 
-    for animal in lista_de_animais:
-        categorias[animal.id] = animal.categoria
-        ids.append(animal.id)
-
     paginator = Paginator(lista_de_animais, 10)
     page = request.GET.get('page')
     animais = paginator.get_page(page)
     
+    for animal in animais:
+        categorias[animal.id] = animal.categoria
+        ids.append(animal.id)
+
     contexto = {
         'animais': animais,
         'perfil_usuarios':perfil_usuarios,
