@@ -6,11 +6,13 @@
 {{ categorias|json_script:'categorias' }}
 {{ ids|json_script:'ids' }}
 <script type="text/javascript" src="{% static 'js/categorias.js' %}"></script>
+<body onload="CategoriaAnimal();" >
 
     <div class="profilebar">
         <img src="../media/{{perfil_usuario.foto}}" alt="{{usuario.username}}" class="img-profile">
         <h3>{{usuario.username}}</h3>
     </div>
+
     <div class="content">
         <div class="row-profile">
             <div class="sidebar">
@@ -49,6 +51,6 @@
         </div>
     </div>
     
-    
+</body>  
     
 {% endblock conteudo %}

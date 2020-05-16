@@ -8,7 +8,34 @@
 {{ ids|json_script:'ids' }}
 <script type="text/javascript" src="{% static 'js/categorias.js' %}"></script>
 
-    <div class="container">
+<body onload="CategoriaAnimal();">
+
+    <form method="POST">
+        {% csrf_token %}
+        <input type="text" name="nome" value="{{nome}}" placeholder="Nome do animal">
+        <input type="text" name="cidade" value="{{cidade}}" placeholder="Cidade">
+
+        <select name="porte" value="{{porte}}">
+            <option value="">-----</option> 
+            <option value="PE">Pequeno</option> 
+            <option value="ME">Médio</option> 
+            <option value="GR">Grande</option> 
+        </select>
+        <select name="categoria_filtro" value="{{categoria_filtro}}">
+            <option value="">-----</option> 
+            <option value="PA">Para Adoção</option> 
+            <option value="P">Perdido</option> 
+            <option value="E">Encontrado</option> 
+        </select>
+        <select name="sexo" value="{{sexo}}">
+            <option value="">-----</option> 
+            <option value="M">Macho</option> 
+            <option value="F">Fêmea</option> 
+        </select>
+        <button type="submit">Filtrar</button>        
+    </form>
+
+    <div class="container" >
         <div class="row justify-content-lg-center">
             {% for animal in animais %}
                 
@@ -33,21 +60,23 @@
                     </div>
                 </div >
             {% endfor %}
-            <div class="paginacao">
-                <span class="step-links">
-                    {% if animais.has_previous %}
-                        <a href="?page={{animais.previous_page_number}}"><button><</button></a>
-                    {% endif %}
-                    <span class="current">
-                        {{ animais.number }} de {{ animais.paginator.num_pages }}
-                    </span>
-                    {% if animais.has_next %}
-                        <a href="?page={{animais.next_page_number}}"><button>></button></a>
-                    {% endif %}
-                </span>
-            </div>
+            
         </div>  
+        <div class="paginacao">
+            <span class="step-links">
+                {% if animais.has_previous %}
+                    <a href="?page={{animais.previous_page_number}}"><button><</button></a>
+                {% endif %}
+                <span class="current">
+                    {{ animais.number }} de {{ animais.paginator.num_pages }}
+                </span>
+                {% if animais.has_next %}
+                    <a href="?page={{animais.next_page_number}}"><button>></button></a>
+                {% endif %}
+            </span>
+        </div>
     </div>
 
-
+    
+</body>
 {% endblock conteudo %}
