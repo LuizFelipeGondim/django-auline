@@ -19,6 +19,7 @@ def lista_animal(request):
     usuarios = User.objects.all()
     lista_de_animais = Animal.objects.all()
 
+    #filtro de animais
     if request.method == 'POST':
         if request.POST.get('nome'):
             nome = request.POST.get('nome')
@@ -40,10 +41,12 @@ def lista_animal(request):
             porte = request.POST.get('porte')
             lista_de_animais = lista_de_animais.filter(porte=porte)
     
+    #paginação das publicações
     paginator = Paginator(lista_de_animais, 10)
     page = request.GET.get('page')
     animais = paginator.get_page(page)
     
+    #transformando as categorias em dicionário para trabalhar com javascript
     for animal in animais:
         categorias[animal.id] = animal.categoria
         ids.append(animal.id)
@@ -82,11 +85,17 @@ def perfil_animal(request, id):
     animal = Animal.objects.get(id=id)
     comentarios = Comentario.objects.filter(animal_id=animal.id)
     form = ComentarioForm(request.POST or None)
+
+    endereco = animal.rua + ' ' + animal.cidade + ' ' + animal.estado
+
     contexto = {
         'animal':animal,
         'form':form,
         'comentarios':comentarios,
+        'endereco': endereco,
     }
+    
+    #salvando comentários
     if request.method == 'POST':
         if form.is_valid():
             user = User.objects.get(id=request.user.id)
