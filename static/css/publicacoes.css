@@ -17,3 +17,77 @@
 .filtro form select, .filtro form input{
     margin: 5px 0px 5px 0px;
 }
+
+.filtro .legenda{
+    margin-top: 15px;
+}
+
+.filtro .legenda .categoria{
+    display: flex;
+    justify-content:flex-start;
+    margin: 5px 0px 0px 5px;
+    align-items:center;
+}
+
+.filtro .legenda h6{
+    margin-top: 7px;
+    margin-left: 5px;
+}
+
+.filtro .legenda .categoria .cor-categoria{
+    height: 30px;
+    width: 30px;
+    border-radius: 5px;
+}
+
+.container .paginacao{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding-bottom: 20px;
+}
+
+.container .paginacao .btn-pagination{
+    background-color: #ff914d;
+    border-radius: 5px;
+    color: #ffffff;
+    border:none;
+    width: 25px;
+}
+
+
+.poster{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    background-color: #00b8ba;
+    justify-content: center;
+    color: #ffffff;
+}
+
+.poster .row-poster{
+    width: 85%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.poster .img-poster img{ 
+    width: 600px;
+    height: 600px;
+}
+
+.poster .texto-poster{
+    font-family: 'Fredoka One', cursive;
+}
+
+@media screen and (max-width: 906px) {
+    .poster .row-poster{
+        flex-direction: column;
+    }
+
+    .poster .texto-poster{
+        margin-top: 50px;
+    }

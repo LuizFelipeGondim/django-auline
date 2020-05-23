@@ -111,10 +111,14 @@ body{
 
 .container{
     display: flex;
-    flex-direction: row;
+    flex-direction: row-reverse;
     background-color: #ffffff;
     margin-top: 20px;
+    margin-bottom: 20px;
     border-radius: 15px;
+    padding: 20px;
+    max-width: 90%;
+    justify-content: space-between;
 }
 
 
@@ -142,6 +146,7 @@ body{
     .form-profile{
         min-width: 400px;
     }
+    
 }
 
 @media screen and (max-width: 700px) {
@@ -222,6 +227,18 @@ body{
         width: 400px;
     }
 
+}
+
+@media screen and (max-width: 650px) {
+    .container{
+        flex-direction: column;
+    }
+
+    .filtro{
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+    }
 }
 
 
