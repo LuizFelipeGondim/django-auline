@@ -2,6 +2,10 @@
 {% load static %}
 {% block titulo %} Perfil {% endblock titulo %}
 
+{% block complemento %} 
+    <link rel="stylesheet" href="{% static 'css/perfil.css' %}">
+{% endblock complemento %} 
+
 {% block conteudo %}
 {{ categorias|json_script:'categorias' }}
 {{ ids|json_script:'ids' }}

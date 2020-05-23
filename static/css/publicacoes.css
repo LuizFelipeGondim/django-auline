@@ -1,0 +1,19 @@
+
+.filtro{
+    margin-top: 20px;
+}
+
+.filtro h3{
+    color: #ff914d;
+    font-weight: bold;
+}
+
+.filtro form{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.filtro form select, .filtro form input{
+    margin: 5px 0px 5px 0px;
+}

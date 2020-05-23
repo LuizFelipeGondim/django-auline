@@ -1,6 +1,11 @@
 {% extends 'base.html' %}
 {% block titulo %} Informações pessoais {% endblock titulo %}
 
+{% load static %}
+{% block complemento %} 
+    <link rel="stylesheet" href="{% static 'css/perfil.css' %}">
+{% endblock complemento %}
+
 {% block conteudo %}
 
     <div class="profilebar">
