@@ -31,7 +31,7 @@ body{
     height: 35px;
     border-radius: 50%;
     margin-right: 10px;
-  }
+}
 
 .post-avatar .author{
     margin-top: 20px;
@@ -166,9 +166,8 @@ body{
         min-width: 330px;
         width: 330px;
         margin-left: -25px;
-    }
-    
-  }
+    }  
+}
 
 @media screen and (max-width: 650px) {
     .profilebar{
@@ -226,7 +225,6 @@ body{
         margin-left: 0;
         width: 400px;
     }
-
 }
 
 @media screen and (max-width: 650px) {

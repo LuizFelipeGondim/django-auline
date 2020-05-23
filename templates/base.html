@@ -2,7 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     {% block complemento %} {% endblock complemento%}
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
@@ -12,67 +12,63 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block titulo %} {% endblock titulo%}</title>
-</head>
-<body >
+  </head>
+  <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-white" id="topo">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <a class="navbar-brand" href="#"><img src="{% static 'imagens/logo.png' %}" 
-        style = "width: 160px; height: 60px;" alt="logo"></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand" href="#"><img src="{% static 'imagens/logo.png' %}" 
+          style = "width: 160px; height: 60px;" alt="logo"></a>
 
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-        <li class="nav-item active">
-            <a class="nav-link" href="#"> Doe </a>
-        </li>
-        <li class="nav-item active">
-            <a class="nav-link" href="#"> Incentivo </a>
-        </li>
-        <li class="nav-item active">
-            <a class="nav-link" href="#"> Sobre </a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="{% url '' %}"> Home </a>
-        </li>
+          <li class="nav-item active">
+              <a class="nav-link" href="#"> Doe </a>
+          </li>
+          <li class="nav-item active">
+              <a class="nav-link" href="#"> Incentivo </a>
+          </li>
+          <li class="nav-item active">
+              <a class="nav-link" href="#"> Sobre </a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="{% url '' %}"> Home </a>
+          </li>
 
-        {% if user.is_authenticated %}
-          <li class="nav-item active">
-            <a class="nav-link" href="{% url 'animais' %}"> Perfil </a>
-          </li>
-        {% else %}  
-          <li class="nav-item active">
-            <a href="{% url 'login' %}">
-              <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Login</button></a>
-          </li>
-          <li class="nav-item active">
-            <a href="{% url 'cadastro' %}"tr>
-              <button class="btn btn-warning" type="submit">Cadastro</button></a>
-          </li>
-        {% endif %}
-          
+          {% if user.is_authenticated %}
+            <li class="nav-item active">
+              <a class="nav-link" href="{% url 'animais' %}"> Perfil </a>
+            </li>
+          {% else %}  
+            <li class="nav-item active">
+              <a href="{% url 'login' %}">
+                <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Login</button>
+              </a>
+            </li>
+            <li class="nav-item active">
+              <a href="{% url 'cadastro' %}"tr>
+                <button class="btn btn-warning" type="submit">Cadastro</button>
+              </a>
+            </li>
+          {% endif %}        
           </ul>
         <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
         </form>
-    </div>
+      </div>
     </nav>
 
-    
         {% block conteudo %}
         {% endblock conteudo %}
-      
 
     <div class="bg-white footer">
-    <footer class="pt-4 my-md-5 pt-md-5 border-top" style = "margin-bottom: 0px;" >
+      <footer class="pt-4 my-md-5 pt-md-5 border-top" style = "margin-bottom: 0px;" >
         <div class="row">
           <div class="col-12 col-md">
-            
-                <img class="mb-2" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="24" height="24">
-                <small class="d-block mb-3 text-muted">&copy; 2017-2018</small>
-            
+            <img class="mb-2" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="24" height="24">
+            <small class="d-block mb-3 text-muted">&copy; 2017-2018</small>
           </div>
           <div class="col-6 col-md">
             <h5>Features</h5>
@@ -106,10 +102,8 @@
           <div class="col-6 col-md">
             <a href="#topo"><button type="button" class="btn btn-dark">Retornar</button></a>
           </div>
-          
         </div>
       </footer>
     </div>
-    
-</body>
+  </body>
 </html>

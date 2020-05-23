@@ -5,9 +5,8 @@
 var pegarValores = function(){
 
     var lat = resposta.features[0].center[1];
-    var long = resposta.features[0].center[0];
-    
-
+	var long = resposta.features[0].center[0];
+	
 	var mapa = document.createElement('div');
 	mapa.setAttribute("id","mapa");
 	document.getElementById('conteudo').appendChild(mapa);
@@ -22,8 +21,6 @@ var pegarValores = function(){
 //Onde o mapa é gerado
 function CriarMap(lat1,long1){
 
-	console.log(lat1);
-	console.log(long1);
 	var mymap = L.map('mapa').setView([lat1,long1], 15);
 	L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiY2ZsYmVkdWNhdG9yIiwiYSI6ImNrMTZrYm1vNTA1dWEzaGxqN2tmMTZlazcifQ.XXsWkpgiguegb-C7WQpGBA', {
 		maxZoom: 18,
@@ -48,7 +45,7 @@ function reqListener() {
 }
 
 var resposta;
-function testar (endereco){
+function GerarCoordenadas(endereco){
     oReq = new XMLHttpRequest();
     oReq.onload = reqListener;
     oReq.open("get","https://api.mapbox.com/geocoding/v5/mapbox.places/"+endereco+".json?access_token=sk.eyJ1Ijoib3J1YW4iLCJhIjoiY2sxYmEwbW53MDJpeDNvcGN4Mm5mYWYwciJ9.wuSyAqEfN8SFraG1v9jE8Q");
@@ -64,5 +61,5 @@ function testar (endereco){
 //Funcao principal, chama todas outras em uma sequência lógica;
 function main(){
     const endereco = JSON.parse(document.getElementById('endereco').textContent);
-	testar(endereco);
+	GerarCoordenadas(endereco);
 }

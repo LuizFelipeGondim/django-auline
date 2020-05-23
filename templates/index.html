@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block titulo %} Feed {% endblock titulo %}
+{% block titulo %} AUline {% endblock titulo %}
 
 {% block complemento %} 
     <link rel="stylesheet" href="{% static 'css/publicacoes.css' %}">
@@ -10,110 +10,106 @@
 {% endblock complemento %} 
 
 {% block conteudo %}
-{{ categorias|json_script:'categorias' }}
-{{ ids|json_script:'ids' }}
-<script type="text/javascript" src="{% static 'js/categorias.js' %}"></script>
+    {{ categorias|json_script:'categorias' }}
+    {{ ids|json_script:'ids' }}
+    <script type="text/javascript" src="{% static 'js/categorias.js' %}"></script>
 
-<body onload="CategoriaAnimal();">
-
-    <div class="poster">
-        <div class="row-poster">
-            <div class="texto-poster">
-                <h1>Seja bem vindo!</h1>
-                <h4>Procure seu animal</h4>
-            </div>
-            <div class="img-poster">
-                <img src="{% static 'imagens/img-pet.jpg' %}" alt="Borda foto criado por freepik ">
-            </div>
-        </div>
-    </div>
-
-    <div class="container">
-        <div class="filtro">
-            <h3>Procure seu amigo :)</h3>
-            <form method="POST">
-                {% csrf_token %}
-                <input type="text" name="nome" value="{{nome}}" placeholder="Nome do animal">
-                <input type="text" name="cidade" value="{{cidade}}" placeholder="Cidade">
-
-                <select name="porte" >
-                    <option value="{{porte}}">{{porte}}</option> 
-                    <option value="PE">Pequeno</option> 
-                    <option value="ME">Médio</option> 
-                    <option value="GR">Grande</option> 
-                </select>
-                <select name="categoria_filtro" >
-                    <option value="{{categoria_filtro}}">------</option> 
-                    <option value="PA">Para Adoção</option> 
-                    <option value="P">Perdido</option> 
-                    <option value="E">Encontrado</option> 
-                </select>
-                <select name="sexo">
-                    <option value="{{sexo}}">{{sexo}}</option> 
-                    <option value="M">Macho</option> 
-                    <option value="F">Fêmea</option> 
-                </select>
-                <button type="submit" class = "btn btn-outline-info">Filtrar</button>        
-            </form>
-            <div class="legenda">
-                <h3>Legenda</h3>
-                <div class="categoria">
-                    <div class="cor-categoria" style="background-color: #ed8787;"></div>
-                    <h6>Animais perdidos</h6>
+    <body onload="CategoriaAnimal();">
+        <div class="poster">
+            <div class="row-poster">
+                <div class="texto-poster">
+                    <h1>Seja bem vindo!</h1>
+                    <h4>Procure seu animal</h4>
                 </div>
-                <div class="categoria">
-                    <div class="cor-categoria" style="background-color: #3fbcdb;"></div>
-                    <h6>Animais para adoção</h6>
-                </div>
-                <div class="categoria">
-                    <div class="cor-categoria" style="background-color: #5eed5e;"></div>
-                    <h6>Animais encontrados</h6>
+                <div class="img-poster">
+                    <img src="{% static 'imagens/img-pet.jpg' %}" alt="Borda foto criado por freepik ">
                 </div>
             </div>
         </div>
-        <div class="row justify-content-lg-center">
-            {% for animal in animais %}
-                
-            <div class="card col-sm-1" id="{{animal.id}}" >
-                <div class="post-avatar">
-                    {% for perfil in perfil_usuarios %}
-                        {% if perfil.user == animal.usuario %}
-                            <img src="../media/{{perfil.foto}}" alt="Avatar" class="avatar">
-                            <p class="author"> {{animal.usuario}} </p>
-                        {% endif %}
-                    {% endfor %}
-                </div>
-                <a href="{% url 'perfil-animal' animal.id %}">
-                    <img class="card-img-top" src="../media/{{animal.imagem}}" alt="{{animal.nome}}">
-                </a>
-                <div class="card-body">
-                    <p>{{animal.usuario}}</p>
-                    <p class="card-text">{{animal.nome}}</p>
-                    <p class="card-text">{{animal.categoria}}</p>
-                    
+
+        <div class="container">
+            <div class="filtro">
+                <h3>Procure seu amigo :)</h3>
+                <form method="POST">
+                    {% csrf_token %}
+                    <input type="text" name="nome" value="{{nome}}" placeholder="Nome do animal">
+                    <input type="text" name="cidade" value="{{cidade}}" placeholder="Cidade">
+
+                    <select name="porte" >
+                        <option value="{{porte}}">{{porte}}</option> 
+                        <option value="PE">Pequeno</option> 
+                        <option value="ME">Médio</option> 
+                        <option value="GR">Grande</option> 
+                    </select>
+                    <select name="categoria_filtro" >
+                        <option value="{{categoria_filtro}}">------</option> 
+                        <option value="PA">Para Adoção</option> 
+                        <option value="P">Perdido</option> 
+                        <option value="E">Encontrado</option> 
+                    </select>
+                    <select name="sexo">
+                        <option value="{{sexo}}">{{sexo}}</option> 
+                        <option value="M">Macho</option> 
+                        <option value="F">Fêmea</option> 
+                    </select>
+                    <button type="submit" class = "btn btn-outline-info">Filtrar</button>        
+                </form>
+                <div class="legenda">
+                    <h3>Legenda</h3>
+                    <div class="categoria">
+                        <div class="cor-categoria" style="background-color: #ed8787;"></div>
+                        <h6>Animais perdidos</h6>
+                    </div>
+                    <div class="categoria">
+                        <div class="cor-categoria" style="background-color: #3fbcdb;"></div>
+                        <h6>Animais para adoção</h6>
+                    </div>
+                    <div class="categoria">
+                        <div class="cor-categoria" style="background-color: #5eed5e;"></div>
+                        <h6>Animais encontrados</h6>
+                    </div>
                 </div>
             </div>
-            {% endfor %}
-        </div>  
-    </div>
+            <div class="row justify-content-lg-center">
+                {% for animal in animais %}   
+                    <div class="card col-sm-1" id="{{animal.id}}" >
+                        <div class="post-avatar">
+                            {% for perfil in perfil_usuarios %}
+                                {% if perfil.user == animal.usuario %}
+                                    <img src="../media/{{perfil.foto}}" alt="Avatar" class="avatar">
+                                    <p class="author"> {{animal.usuario}} </p>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                        <a href="{% url 'perfil-animal' animal.id %}">
+                            <img class="card-img-top" src="../media/{{animal.imagem}}" alt="{{animal.nome}}">
+                        </a>
+                        <div class="card-body">
+                            <p>{{animal.usuario}}</p>
+                            <p class="card-text">{{animal.nome}}</p>
+                            <p class="card-text">{{animal.categoria}}</p>  
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>  
+        </div>
 
-    <div class="container" style="margin-top: -40px;">
-        <div class="paginacao">
-            <span class="step-links">
-                {% if animais.has_previous %}
-                    <a href="?page=1"><button class="btn-pagination"><<</button></a>
-                    <a href="?page={{animais.previous_page_number}}"><button class="btn-pagination"><</button></a>
-                {% endif %}
-                <span class="current">
-                    {{ animais.number }} de {{ animais.paginator.num_pages }}
+        <div class="container" style="margin-top: -40px;">
+            <div class="paginacao">
+                <span class="step-links">
+                    {% if animais.has_previous %}
+                        <a href="?page=1"><button class="btn-pagination"><<</button></a>
+                        <a href="?page={{animais.previous_page_number}}"><button class="btn-pagination"><</button></a>
+                    {% endif %}
+                    <span class="current">
+                        {{ animais.number }} de {{ animais.paginator.num_pages }}
+                    </span>
+                    {% if animais.has_next %}
+                        <a href="?page={{animais.next_page_number}}"><button class="btn-pagination">></button></a>
+                        <a href="?page={{animais.paginator.num_pages}}"><button class="btn-pagination">>></button></a>
+                    {% endif %}
                 </span>
-                {% if animais.has_next %}
-                    <a href="?page={{animais.next_page_number}}"><button class="btn-pagination">></button></a>
-                    <a href="?page={{animais.paginator.num_pages}}"><button class="btn-pagination">>></button></a>
-                {% endif %}
-            </span>
+            </div>
         </div>
-    </div>
-
-</body>
+    </body> 
 {% endblock conteudo %}

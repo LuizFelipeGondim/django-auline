@@ -15,15 +15,15 @@
     <div class="content">
         <div class="row-profile">
             <div class="sidebar">
-            <a href="{% url 'animais'%}">Animais cadastrados</a>
-            <a class="active" href="{% url 'informacoes-pessoais'%}">Informações pessoais</a>
-            <a href="{% url 'alterar-informacoes' usuario.id %}">Alterar Informações pessoais</a>
-            <a href="#">Excluir conta</a>
-            <a href="{% url 'logout' %}">Sair</a>
-          </div>
+                <a href="{% url 'animais'%}">Animais cadastrados</a>
+                <a class="active" href="{% url 'informacoes-pessoais'%}">Informações pessoais</a>
+                <a href="{% url 'alterar-informacoes' usuario.id %}">Alterar Informações pessoais</a>
+                <a href="{% url 'excluir-conta' usuario.id %}">Excluir conta</a>
+                <a href="{% url 'logout' %}">Sair</a>
+            </div>
           
-          <!-- Page content -->
-          <div class="content-profile">
+            <!-- Page content -->
+            <div class="content-profile">
                 <p>usuário: {{usuario.username}}</p>
                 <p>Nome: {{usuario.first_name}}</p>
                 <p>Sobrenome: {{usuario.last_name}}</p>
@@ -34,8 +34,7 @@
                 <p>Cidade: {{perfil_usuario.cidade_usuario}}</p>
                 <p>Rua: {{perfil_usuario.rua_usuario}}</p>
                 <p></p>
-          </div>
+            </div>
         </div>
     </div>
-    
 {% endblock conteudo %}

@@ -42,7 +42,7 @@ def lista_animal(request):
             lista_de_animais = lista_de_animais.filter(porte=porte)
     
     #paginação das publicações
-    paginator = Paginator(lista_de_animais, 10)
+    paginator = Paginator(lista_de_animais, 12)
     page = request.GET.get('page')
     animais = paginator.get_page(page)
     

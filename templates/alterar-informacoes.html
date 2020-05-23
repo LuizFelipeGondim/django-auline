@@ -8,49 +8,46 @@
 
 {% block conteudo %}
 
-    <div class="profilebar">
-        <img src="../../../media/{{perfil_usuario.foto}}" alt="{{usuario.username}}" class="img-profile">
-        <h3>{{usuario.username}}</h3>
-    </div>
-    <div class="content">
-        <div class="row-profile">
-            <div class="sidebar">
-            <a href="{% url 'animais'%}">Animais cadastrados</a>
-            <a href="{% url 'informacoes-pessoais' %}">Informações pessoais</a>
-            <a class="active" href="{% url 'alterar-informacoes' usuario.id %}">Alterar Informações pessoais</a>
-            <a href="#">Excluir conta</a>
-            <a href="{% url 'logout' %}">Sair</a>
-          </div>
-          
-          <!-- Page content -->
-          <div class="content-profile">
-            <div class="container">
-                <div class="row justify-content-lg-center">
-                  <form method="post" class="form-profile" enctype='multipart/form-data'>
-                    
-                    <h1 class="h3 mb-3 ">Alterar dados</h1>
-                    {% csrf_token %}
-                    {{form_perfil.telefone.label}}
-                    {{ form_perfil.telefone }}
-                    {{form_perfil.data_de_nascimento.label}}
-                    {{ form_perfil.data_de_nascimento }}
-                    {{ form_perfil.cidade_usuario.label}}
-                    {{ form_perfil.cidade_usuario }}
-                    {{form_perfil.rua_usuario.label}}
-                    {{ form_perfil.rua_usuario }}
-                    {{form_perfil.estado_usuario.label}}
-                    {{ form_perfil.estado_usuario }}
-                    {{form_perfil.foto.label}}
-                    {{ form_perfil.foto }}
-                    <input type="submit" class="btn btn-primary" value="Atualizar informações">
-                  </form>
-                </div>
-                
-              </div>
-          </div>
+  <div class="profilebar">
+    <img src="../../../media/{{perfil_usuario.foto}}" alt="{{usuario.username}}" class="img-profile">
+    <h3>{{usuario.username}}</h3>
+  </div>
+  <div class="content">
+    <div class="row-profile">
+      <div class="sidebar">
+        <a href="{% url 'animais'%}">Animais cadastrados</a>
+        <a href="{% url 'informacoes-pessoais' %}">Informações pessoais</a>
+        <a class="active" href="{% url 'alterar-informacoes' usuario.id %}">Alterar Informações pessoais</a>
+        <a href="{% url 'excluir-conta' usuario.id %}">Excluir conta</a>
+        <a href="{% url 'logout' %}">Sair</a>
+      </div>
+        
+      <!-- Page content -->
+      <div class="content-profile">
+        <div class="container">
+          <div class="row justify-content-lg-center">
+            <form method="post" class="form-profile" enctype='multipart/form-data'>
+              
+              <h1 class="h3 mb-3 ">Alterar dados</h1>
+              {% csrf_token %}
+              {{form_perfil.telefone.label}}
+              {{ form_perfil.telefone }}
+              {{form_perfil.data_de_nascimento.label}}
+              {{ form_perfil.data_de_nascimento }}
+              {{ form_perfil.cidade_usuario.label}}
+              {{ form_perfil.cidade_usuario }}
+              {{form_perfil.rua_usuario.label}}
+              {{ form_perfil.rua_usuario }}
+              {{form_perfil.estado_usuario.label}}
+              {{ form_perfil.estado_usuario }}
+              {{form_perfil.foto.label}}
+              {{ form_perfil.foto }}
+              <input type="submit" class="btn btn-primary" value="Atualizar informações">
+
+            </form>
+          </div>  
         </div>
+      </div>
     </div>
-    
-    
-    
+  </div>   
 {% endblock conteudo %}

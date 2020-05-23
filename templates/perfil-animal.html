@@ -11,32 +11,28 @@
 
 {% block titulo %} {{animal.nome}} {% endblock titulo %}
 {% block conteudo %}
-{{ endereco|json_script:'endereco' }}
+    {{ endereco|json_script:'endereco' }}
     <script type="text/javascript" src="{% static 'js/mapa.js' %}"></script>
-<body onload="main()">
+    <body onload="main()">
+        <div class="container">
+            <div class="row">
+                <img class="img-animal" src="../../media/{{animal.imagem}}" alt="{{animal.nome}}">
+            </div>
+            <div id="conteudo"></div>
 
-    <div class="container">
-        <div class="row">
-            <img class="img-animal" src="../../media/{{animal.imagem}}" alt="{{animal.nome}}">
+            <form method="post">
+                {% csrf_token %}
+                {{form.conteudo}}
+                <button type="submit"> Comentar </button>
+            </form>
+
+            {% for comentario in comentarios %}
+                {% if comentario.aprovado == True %}
+                    <img src="../../media/{{comentario.avatar}}" alt="{{comentario.autor}}">
+                    <p>{{comentario.autor}}</p>
+                    <p>{{comentario.conteudo}}</p>
+                {% endif %}
+            {% endfor %} 
         </div>
-    </div>
-
-    <h1>{{endereco}}</h1>
-
-    <div id="conteudo"></div>
-
-    <form method="post">
-        {% csrf_token %}
-        {{form.conteudo}}
-        <button type="submit"> Comentar </button>
-    </form>
-
-    {% for comentario in comentarios %}
-        {% if comentario.aprovado == True %}
-            <img src="../../media/{{comentario.avatar}}" alt="{{comentario.autor}}">
-            <p>{{comentario.autor}}</p>
-            <p>{{comentario.conteudo}}</p>
-        {% endif %}
-    {% endfor %} 
-</body>
+    </body>
 {% endblock conteudo %}

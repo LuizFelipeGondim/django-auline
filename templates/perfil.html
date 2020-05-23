@@ -1,60 +1,56 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block titulo %} Perfil {% endblock titulo %}
+{% block titulo %} Perfil - {{usuario.username}}{% endblock titulo %}
 
 {% block complemento %} 
     <link rel="stylesheet" href="{% static 'css/perfil.css' %}">
 {% endblock complemento %} 
 
 {% block conteudo %}
-{{ categorias|json_script:'categorias' }}
-{{ ids|json_script:'ids' }}
-<script type="text/javascript" src="{% static 'js/categorias.js' %}"></script>
-<body onload="CategoriaAnimal();" >
+    {{ categorias|json_script:'categorias' }}
+    {{ ids|json_script:'ids' }}
+    <script type="text/javascript" src="{% static 'js/categorias.js' %}"></script>
+    <body onload="CategoriaAnimal();" >
 
-    <div class="profilebar">
-        <img src="../media/{{perfil_usuario.foto}}" alt="{{usuario.username}}" class="img-profile">
-        <h3>{{usuario.username}}</h3>
-    </div>
+        <div class="profilebar">
+            <img src="../media/{{perfil_usuario.foto}}" alt="{{usuario.username}}" class="img-profile">
+            <h3>{{usuario.username}}</h3>
+        </div>
 
-    <div class="content">
-        <div class="row-profile">
-            <div class="sidebar">
-            <a class="active" href="{% url 'animais'%}">Animais cadastrados</a>
-            <a href="{% url 'informacoes-pessoais'%}">Informações pessoais</a>
-            <a href="{% url 'alterar-informacoes' usuario.id %}">Alterar Informações pessoais</a>
-            <a href="{% url 'excluir-conta' usuario.id %}">Excluir conta</a>
-            <a href="{% url 'logout' %}">Sair</a>
-          </div>
-          
-          
-          <!-- Page content -->
-          <div class="content-profile">
-                {% for animal in animais %}
-                    <div class="card-perfil" id="{{animal.id}}">
-                        <img class="card-img-top img-profile-animal" 
-                        src="../media/{{animal.imagem}}" alt="{{animal.nome}}">
-                        <div class="card-body">
-                            <div class="card-body-top">
-                                <p>{{animal.nome}}</p>
-                                <div>
-                                    <a href="{% url 'editar-animal' animal.id %}" class="icon-crud">
-                                        <img src="{% static 'imagens/edit.svg' %}" alt="editar">
-                                    </a>
-                                    <a href="{% url 'excluir-animal' animal.id %}" class="icon-crud">
-                                        <img src="{% static 'imagens/trash-2.svg' %}" alt="apagar">
-                                    </a>
+        <div class="content">
+            <div class="row-profile">
+                <div class="sidebar">
+                    <a class="active" href="{% url 'animais'%}">Animais cadastrados</a>
+                    <a href="{% url 'informacoes-pessoais'%}">Informações pessoais</a>
+                    <a href="{% url 'alterar-informacoes' usuario.id %}">Alterar Informações pessoais</a>
+                    <a href="{% url 'excluir-conta' usuario.id %}">Excluir conta</a>
+                    <a href="{% url 'logout' %}">Sair</a>
+                </div>
+            
+            
+                <!-- Page content -->
+                <div class="content-profile">
+                    {% for animal in animais %}
+                        <div class="card-perfil" id="{{animal.id}}">
+                            <img class="card-img-top img-profile-animal" 
+                            src="../media/{{animal.imagem}}" alt="{{animal.nome}}">
+                            <div class="card-body">
+                                <div class="card-body-top">
+                                    <p>{{animal.nome}}</p>
+                                    <div>
+                                        <a href="{% url 'editar-animal' animal.id %}" class="icon-crud">
+                                            <img src="{% static 'imagens/edit.svg' %}" alt="editar">
+                                        </a>
+                                        <a href="{% url 'excluir-animal' animal.id %}" class="icon-crud">
+                                            <img src="{% static 'imagens/trash-2.svg' %}" alt="apagar">
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    
-                    </script>
-                {% endfor %} 
-          </div>
-        </div>
-    </div>
-    
-</body>  
-    
+                    {% endfor %} 
+                </div>
+            </div>
+        </div>   
+    </body>  
 {% endblock conteudo %}

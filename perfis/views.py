@@ -90,6 +90,7 @@ def editar_animal(request, id_animal):
             'usuario':usuario,
             'perfil_usuario':perfil_usuario,
             'form':form,
+            'animal':animal,
         }
         if request.method == 'POST':
             if form.is_valid():
