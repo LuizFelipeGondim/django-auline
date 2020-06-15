@@ -1,5 +1,6 @@
 body{
     background-color: #E7F2FA;
+    font-family: 'Ubuntu', sans-serif;
 }
 
 * {
@@ -8,64 +9,114 @@ body{
     box-sizing: border-box
 }
 
-/*cards-----*/
-
-.card{
-    margin: 10px;
-    padding: 5px;
-    height: 350px;
-    max-width: 272px;
-    min-width: 272px;
-}
-
-.card .card-body .card-body-top {
+.container{
+    max-width: none;
+    width: 100%;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    height: 25px;
+    justify-content: center;
+    
 }
 
-.post-avatar .avatar {
-    vertical-align: middle;
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    margin-right: 10px;
-}
-
-.post-avatar .author{
-    margin-top: 20px;
-}
-
-
-.post-avatar{
+.row{
     display: flex;
-    flex-direction: row;
+    justify-content: center;
+    margin-top: 15px;
     align-items: center;
-    height: 35px;
+    width: 100%;
+    max-width: 1200px;
 }
 
-.card-img-top{
-    margin-top: 5px;
-    width: 260px;
-    height: 180px;
+
+
+footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #00ACED;
+    width: 100%;
+    padding:10px;
+    margin-bottom:0;
 }
 
-.nav-item{
-    padding: 5px;
+footer .footer-top{
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    max-width: 1000px;
+    align-items: center;
+    height: 100px;
 }
 
-/*footer------------*/
-
-.footer{
-    max-width: 100%;
-}
-.my-md-5{
-    margin-top: 2rem !important;
-    margin-bottom: 0 !important;
+footer .footer-top a{
+    color: #fff;
+    text-decoration: none;
 }
 
-/*formularios-----*/
+footer hr{
+    background-color: #fff;
+    width: 80%;
+    max-width: 1000px;
+}
+
+footer .footer-bottom{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    width: 40%;
+    max-width: 400px;
+}
+
+footer .footer-bottom .iconify{
+    font-size: 45px;
+    color: #fff;
+    border-radius: 23px;
+    padding: 10px;
+}
+
+footer .footer-bottom .iconify:hover{
+    opacity: 0.8;
+}
+
+@media screen and (max-width: 701px) {
+    footer .footer-top{
+        flex-direction: column;
+    }
+
+    footer .footer-top a{
+        margin-top: 10px;
+    }
+
+    footer hr{
+        margin-top: 80px;
+    }
+
+@media screen and (max-width: 500px) {
+
+    footer {
+        height: 400px;
+    }
+    footer .footer-bottom{
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 80%;
+    }
+
+    footer .footer-bottom .iconify{
+        margin: 10px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .poster .img-poster img{ 
+        width: 300px;
+        height: 300px;
+    }
+}
+
+
+/*formularios-----
 .form-cadastro{
     margin: 10px;
     padding: 20px;
@@ -92,38 +143,7 @@ body{
     align-items: center;
 }
 
-/*perfil----*/
-
-
-.content {
-    width: 100%;
-    display:flex;
-    justify-content: center;
-}
-
-.row{
-    margin: 0;
-    justify-content: center;
-    margin-top: 15px;
-    align-items: center;
-    width: 98%;
-}
-
-.container{
-    display: flex;
-    flex-direction: row-reverse;
-    background-color: #ffffff;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    border-radius: 15px;
-    padding: 20px;
-    max-width: 90%;
-    justify-content: space-between;
-}
-
-
-
-/*contato-------*/
+/*contato-------
 
 .form-envio{
     display: flex;
@@ -140,7 +160,7 @@ body{
 }
 
 
-/*Medias para ajuste mobile------------*/
+/*Medias para ajuste mobile------------
 
 @media screen and (max-width: 750px) {
     .form-profile{
@@ -238,6 +258,6 @@ body{
         justify-content: center;
     }
 }
-
+*/
 
   

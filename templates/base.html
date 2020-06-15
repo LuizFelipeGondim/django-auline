@@ -11,8 +11,13 @@
     <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+    <script src="https://code.iconify.design/1/1.0.6/iconify.min.js"></script>
+    
     <title>{% block titulo %} {% endblock titulo%}</title>
   </head>
+
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-white" id="topo">
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
@@ -39,71 +44,46 @@
           {% if user.is_authenticated %}
             <li class="nav-item active">
               <a class="nav-link" href="{% url 'animais' %}"> Perfil </a>
-            </li>
-          {% else %}  
-            <li class="nav-item active">
-              <a href="{% url 'login' %}">
-                <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Login</button>
-              </a>
-            </li>
-            <li class="nav-item active">
-              <a href="{% url 'cadastro' %}"tr>
-                <button class="btn btn-warning" type="submit">Cadastro</button>
-              </a>
-            </li>
-          {% endif %}        
+            </li> 
+          {% endif %}    
+
           </ul>
-        <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
-        </form>
+
+          {% if not user.is_authenticated %}
+            <div class="form-inline my-2 my-lg-0">
+              <div class="nav-item active">
+                <a href="{% url 'login' %}">
+                  <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Login</button>
+                </a>
+              </div>
+              <div class="nav-item active">
+                <a href="{% url 'cadastro' %}"tr>
+                  <button class="btn btn-warning" type="submit">Cadastro</button>
+                </a>
+              </div>
+            </div>
+          {% endif %} 
       </div>
     </nav>
 
         {% block conteudo %}
         {% endblock conteudo %}
 
-    <div class="bg-white footer">
-      <footer class="pt-4 my-md-5 pt-md-5 border-top" style = "margin-bottom: 0px;" >
-        <div class="row">
-          <div class="col-12 col-md">
-            <img class="mb-2" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="24" height="24">
-            <small class="d-block mb-3 text-muted">&copy; 2017-2018</small>
-          </div>
-          <div class="col-6 col-md">
-            <h5>Features</h5>
-            <ul class="list-unstyled text-small">
-              <li><a class="text-muted" href="#">Cool stuff</a></li>
-              <li><a class="text-muted" href="#">Random feature</a></li>
-              <li><a class="text-muted" href="#">Team feature</a></li>
-              <li><a class="text-muted" href="#">Stuff for developers</a></li>
-              <li><a class="text-muted" href="#">Another one</a></li>
-              <li><a class="text-muted" href="#">Last time</a></li>
-            </ul>
-          </div>
-          <div class="col-6 col-md">
-            <h5>Resources</h5>
-            <ul class="list-unstyled text-small">
-              <li><a class="text-muted" href="#">Resource</a></li>
-              <li><a class="text-muted" href="#">Resource name</a></li>
-              <li><a class="text-muted" href="#">Another resource</a></li>
-              <li><a class="text-muted" href="{% url 'contato' %}">Entre em Contato</a></li>
-            </ul>
-          </div>
-          <div class="col-6 col-md">
-            <h5>About</h5>
-            <ul class="list-unstyled text-small">
-              <li><a class="text-muted" href="#">Team</a></li>
-              <li><a class="text-muted" href="#">Locations</a></li>
-              <li><a class="text-muted" href="#">Privacy</a></li>
-              <li><a class="text-muted" href="#">Terms</a></li>
-            </ul>
-          </div>
-          <div class="col-6 col-md">
-            <a href="#topo"><button type="button" class="btn btn-dark">Retornar</button></a>
-          </div>
-        </div>
-      </footer>
-    </div>
+    <footer>
+      <div class="footer-top">
+        <a href="#"> Entre em Contato </a>
+        <a href="#"> Perguntas Frequentes </a>
+        <a href="#"> Políticas de Privacidade </a>
+        <a href="#"> Equipe de Desenvolvedores</a>
+        <a href="#"> Termos de Uso </a>
+      </div>
+      <hr>
+      <div class="footer-bottom">
+        <span class="iconify" data-icon="feather:youtube" data-inline="false" style="background-color: #f8433f;"></span>
+        <span class="iconify" data-icon="feather:facebook" data-inline="false" style="background-color: #3b5998;"></span>
+        <span class="iconify" data-icon="feather:twitter" data-inline="false" style="background-color: #2fbff3;"></span>
+        <span class="iconify instagram" data-icon="feather:instagram" data-inline="false" style="background-image: linear-gradient(to bottom left,#9064c2,#e53d3a,#f1bb39);"></span>
+      </div>
+    </footer>
   </body>
 </html>
