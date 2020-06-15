@@ -1,0 +1,42 @@
+
+.btn-primary{
+    background-color: #FF914D;
+    color: #ffffff;
+    border: none;
+    transition: opacity 1s;
+    margin-top: 10px;
+}
+
+.btn-primary:hover{
+    background-color: #FF914D;
+    opacity: 0.8;
+}
+
+.form{
+    background-color: #ffffff;
+    border-radius: 10px;
+    margin: 15px 15px 30px 15px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form .label-form{
+    margin:5px;
+}
+
+.form a{
+    margin-top: 10px;
+    text-decoration: none;
+    color: rgb(160, 160, 160);
+}
+
+.form a:hover{
+    color: rgb(207, 207, 207);
+}
+
+.form-links{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

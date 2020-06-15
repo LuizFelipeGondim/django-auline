@@ -1,38 +1,35 @@
+{% extends 'base.html' %}
 {% load static %}
+{% block titulo %}Login{% endblock titulo %}
 
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
-        <link rel="stylesheet" href="{% static 'css/style.css' %}">
-        <title>Login</title>
-    </head>
-    <body>
-            <div class="row justify-content-sm-center">
-                <div class="com-md-6">
-                    <div class="card auth-card">
-                        <div class="card-body">
-                            <h4 class="card-tittle text-center">Login</h4>
-                            <form method="POST">
-                                {% csrf_token %}
-                                <br>
-                                <input type="text" name="email" placeholder="Email" class="form-control">
-                                <br>
-                                <input type="password" name="password" placeholder="Senha" class="form-control">
-                                <br>
-                                <button type="submit" class="btn btn-primary btn-block">Logar</button>
-                            </form>  
-                            <div>
-                                {% for message in messages %}
-                                    <h6>{{ message }}</h3>
-                                {% endfor %}
-                            </div>      
-                        </div>
+{% block complemento %} 
+    <link rel="stylesheet" href="{% static 'css/form.css' %}">
+{% endblock complemento %}
+
+{% block conteudo %}
+
+    <div class="container">
+        <div class="row">
+            <div class="com-md-6">
+                <div class="card auth-card">
+                    <div class="card-body">
+                        <h4 class="card-tittle text-center">Login</h4>
+                        <form method="POST" class="form">
+                            {% csrf_token %}
+                            <br>
+                            <input type="text" name="email" placeholder="Email" class="form-control">
+                            <br>
+                            <input type="password" name="password" placeholder="Senha" class="form-control">
+                            <br>
+                            <button type="submit" class="btn btn-primary btn-block">Logar</button>
+                            <div class="form-links">
+                                <a href="">Esqueceu sua senha?</a>
+                                <a href="{% url 'cadastro' %}">Não tem uma conta? Clique aqui :)</a>
+                            </div>
+                        </form>  
                     </div>
-                </div>    
-            </div>
-        
-    </body>
-</html>
+                </div>
+            </div>    
+        </div>
+    </div>
+{% endblock conteudo %}

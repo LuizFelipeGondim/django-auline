@@ -1,17 +1,21 @@
 {% extends 'base.html' %}
 {% block titulo %} Entre em Contato {% endblock titulo %}
+{% load static %}
+{% block complemento %} 
+    <link rel="stylesheet" href="{% static 'css/form.css' %}">
+{% endblock complemento %}
 
 {% block conteudo %}
     <div class="container">
-        <div class="row justify-content-lg-center">
-            <form method="post" class="form-envio">
+        <div class="row">
+            <form method="post" class="form">
                 <h1 class="h3 mb-3 "> Entre em Contato </h1>
                 {% csrf_token %}
-                {{form.nome.label}}
+                <label class="label-form"> Nome(Opcional) </label>
                 {{form.nome}}
-                {{form.email.label}}
+                <label class="label-form"> E-mail </label>
                 {{form.email}}
-                {{form.conteudo.label}}
+                <label class="label-form"> Como podemos ajudá-lo? </label>
                 {{form.conteudo}}    
                 
                 <button type="submit" class="btn btn-primary"> Enviar </button>
