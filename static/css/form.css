@@ -1,16 +1,4 @@
 
-.btn-primary{
-    background-color: #FF914D;
-    color: #ffffff;
-    border: none;
-    transition: opacity 1s;
-    margin-top: 10px;
-}
-
-.btn-primary:hover{
-    background-color: #FF914D;
-    opacity: 0.8;
-}
 
 .form{
     background-color: #ffffff;

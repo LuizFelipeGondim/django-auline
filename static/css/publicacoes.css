@@ -190,19 +190,6 @@
     color: #FF6100;
 }
 
-.card-body .info-carac .carac{
-    height: 25px;
-    width: 25px;
-    color: #ffffff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 5px;
-}
-
-.card-body .info-carac .carac p{
-    margin-top: 15px;
-}
 
 .container-pub{
     max-width: none;

@@ -15,7 +15,6 @@ body{
     display: flex;
     height: 100%;
     justify-content: center;
-    min-height: 500px;
     
 }
 
@@ -80,6 +79,39 @@ footer .footer-bottom .iconify{
 footer .footer-bottom .iconify:hover{
     opacity: 0.8;
 }
+
+/* Caracteristicas-card */
+
+.card-body .carac{
+    height: 25px;
+    width: 25px;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+}
+
+.card-body .carac p{
+    margin-top: 15px;
+}
+
+/* Botões */
+
+.btn-primary{
+    background-color: #FF914D;
+    color: #ffffff;
+    border: none;
+    transition: opacity 1s;
+    margin-top: 10px;
+}
+
+.btn-primary:hover{
+    background-color: #FF914D;
+    opacity: 0.8;
+}
+
+/* Medias */
 
 @media screen and (max-width: 701px) {
     footer .footer-top{
@@ -162,7 +194,7 @@ footer .footer-bottom .iconify:hover{
 }
 
 
-/*Medias para ajuste mobile------------
+/*Medias para ajuste mobile------------*/
 
 @media screen and (max-width: 750px) {
     .form-profile{
@@ -191,63 +223,8 @@ footer .footer-bottom .iconify:hover{
     }  
 }
 
-@media screen and (max-width: 650px) {
-    .profilebar{
-        width: 100%;
-        height: 350px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
 
-    .row-profile{
-        flex-direction: column;
-    }
 
-    .img-profile{
-        margin-bottom: 10px;
-        margin-left: 0;
-    }
-
-    .form-envio{
-        width: 100%;
-    }
-    .content-profile{
-        width: 95%;
-        justify-content: center;
-    }
-
-    .content-profile .container{
-        padding: 0;
-    }
-
-    .img-profile-animal{
-        width: 260px;
-    }
-
-    .sidebar a {
-        text-align: center;
-        float: none;
-    }
-
-    .row-profile{
-        justify-content: center;
-    }
-
-    .sidebar{
-        max-width: none;
-    }
-
-    .content-profile{
-        width: 100%;
-    }
-
-    .form-profile{
-        margin-left: 0;
-        width: 400px;
-    }
-}
 
 @media screen and (max-width: 650px) {
     .container{
@@ -260,6 +237,6 @@ footer .footer-bottom .iconify:hover{
         justify-content: center;
     }
 }
-*/
+
 
   

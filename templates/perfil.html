@@ -12,12 +12,16 @@
     <script type="text/javascript" src="{% static 'js/categorias.js' %}"></script>
     <body onload="CategoriaAnimal();" >
 
-        <div class="profilebar">
-            <img src="../media/{{perfil_usuario.foto}}" alt="{{usuario.username}}" class="img-profile">
-            <h3>{{usuario.username}}</h3>
+        <div class="container" style="background-color:#00ACED;">
+            <div class="row">
+                <div class="profilebar">
+                    <img src="../media/{{perfil_usuario.foto}}" alt="{{usuario.username}}" class="img-profile">
+                    <h3>{{usuario.username}}</h3>
+                </div>
+            </div>
         </div>
 
-        <div class="content">
+        <div class="container">
             <div class="row-profile">
                 <div class="sidebar">
                     <a class="active" href="{% url 'animais'%}">Animais cadastrados</a>
@@ -31,7 +35,7 @@
                 <!-- Page content -->
                 <div class="content-profile">
                     {% for animal in animais %}
-                        <div class="card-perfil" id="{{animal.id}}">
+                        <div class="card-perfil">
                             <img class="card-img-top img-profile-animal" 
                             src="../media/{{animal.imagem}}" alt="{{animal.nome}}">
                             <div class="card-body">
@@ -45,6 +49,9 @@
                                             <img src="{% static 'imagens/trash-2.svg' %}" alt="apagar">
                                         </a>
                                     </div>
+                                </div>
+                                <div class="carac" id="{{animal.id}}">
+                                    <p>{{animal.categoria}}</p>
                                 </div>
                             </div>
                         </div>
